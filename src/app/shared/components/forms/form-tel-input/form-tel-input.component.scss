@@ -1,0 +1,58 @@
+// ::ng-deep .form-tel-input {
+//   width: 100%;
+//   padding-top: 0.5rem;
+//   padding-bottom: 0.5rem;
+//   min-height: 35px;
+//   border: 1px solid #e1e1e1 !important;
+//   border-radius: 4px;
+
+//   &:focus,
+//   &:focus-visible,
+//   &:focus-within {
+//     border: 1.5px solid #e1e1e1 !important;
+//     outline: 0 !important;
+//   }
+// }
+
+::ng-deep .iti {
+  width: 100%;
+
+  .iti__tel-input {
+    width: 100%;
+    padding-left: 115px !important;
+  }
+
+  .iti__arrow {
+    border: 0;
+    background-image: url(data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M4.99956%203.87852L8.71206%200.166016L9.77256%201.22652L4.99956%205.99952L0.226562%201.22652L1.28706%200.166016L4.99956%203.87852Z%22%20fill%3D%22%23525866%22%2F%3E%3C%2Fsvg%3E);
+    width: 12px;
+    height: 7px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .iti__selected-flag {
+    width: 105px !important;
+  }
+
+  .dropdown-menu {
+    min-width: 15rem !important;
+
+    .search-container {
+      input {
+        font-size: 0.85rem;
+        min-height: 30px;
+        font-weight: 400;
+      }
+    }
+
+    .iti__country-list {
+      max-height: 150px;
+
+      li {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

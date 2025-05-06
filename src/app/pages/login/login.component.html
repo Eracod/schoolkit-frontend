@@ -1,0 +1,61 @@
+<div class="container-lg">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <header class="text-center mb-3">
+          <p class="title mb-0">Login</p>
+          <p class="body-text mb-0">Take control of your payments</p>
+        </header>
+
+        <form [formGroup]="loginForm">
+          <app-form-field class="mb-3">
+            <label for="email" class="visible">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              formControlName="email"
+            />
+          </app-form-field>
+
+          <app-form-field class="mb-4">
+            <label for="email" class="visible">Password</label>
+            <div class="password-pane">
+              <input
+                [type]="passwordType"
+                [autocomplete]="'off'"
+                id="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+              />
+              @if (fc.password.value) {
+              <button type="button" class="btn" (click)="toggleMode()">
+                <app-svg-icon [icon]="passwordIcon" [size]="15"></app-svg-icon>
+              </button>
+              }
+            </div>
+          </app-form-field>
+
+          <div class="d-grid gap-4 mb-3">
+            <button class="btn btn-primary btn-lg">Log in</button>
+            <button class="btn btn-outline-primary btn-lg">
+              <app-svg-icon
+                [icon]="'google'"
+                [size]="20"
+                class="me-3"
+              ></app-svg-icon>
+              <span>Continue with Google</span>
+            </button>
+          </div>
+
+          <p class="body-text text-center">
+            Don't have an account?
+            <a class="link fw-bold" href="#">Signup</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

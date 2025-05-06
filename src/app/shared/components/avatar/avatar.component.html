@@ -1,0 +1,12 @@
+@if (avatar.url) { @if (!isBrokenImage) {
+<img [src]="avatar.url" [alt]="avatar.text" (error)="isBrokenImage = true" />
+} @else {
+<ng-container [ngTemplateOutlet]="initialTemplate"></ng-container>
+} } @else {
+<ng-container [ngTemplateOutlet]="initialTemplate"></ng-container>
+}
+
+<!-- Template -->
+<ng-template #initialTemplate>
+  <span>{{ initial }}</span>
+</ng-template>

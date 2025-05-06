@@ -1,1 +1,261 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@use "bootstrap/scss/bootstrap";
+$border-radius: 8px;
+
+:root {
+  --app-dark: #0a0a0b;
+  --app-grey: #f5f7fa;
+  --app-grey-400: #e1e4ea;
+  --app-primary: #073b4c;
+  --app-primary-500: #0f6987;
+  --app-primary-accent: #c4e0e9;
+  --app-border-radius: 8px;
+  --app-border-radius-1: 16px;
+  --app-border-radius-2: 24px;
+}
+
+body {
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body * {
+  font-family: "Kumbh Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "YOPQ" 300;
+}
+
+html,
+body {
+  color: #525866;
+}
+
+/* Bootstrap Overrides */
+.btn {
+  --bs-btn-active-border-color: transparent;
+  --bs-border-radius: 8px;
+  --bs-btn-hover-color: #a0cedd;
+  --bs-btn-active-color: var(--app-primary);
+  --bs-btn-active-bg: #edf5f8;
+  --bs-btn-disabled-color: #a0cedd;
+  --bs-btn-disabled-bg: #edf5f8;
+  --bs-btn-disabled-border-color: #edf5f8;
+
+  font-size: 0.8rem;
+
+  &.btn-lg {
+    --bs-btn-font-size: 0.8rem;
+    --bs-btn-padding-y: 10px;
+    --bs-border-radius-lg: 8px;
+
+    min-width: 10em;
+  }
+
+  &.btn-primary {
+    --bs-btn-hover-bg: var(--app-primary-500);
+    --bs-btn-hover-color: #a0cedd;
+    --bs-btn-active-color: #edf5f8;
+    --bs-btn-active-bg: var(--app-primary);
+    --bs-btn-color: var(--app-primary-accent);
+    --bs-btn-bg: var(--app-primary);
+    --bs-btn-border-color: var(--app-primary);
+    --bs-btn-disabled-color: #a0cedd;
+    --bs-btn-disabled-bg: #edf5f8;
+    --bs-btn-disabled-border-color: #edf5f8;
+
+    &.active {
+      --bs-btn-active-color: var(--app-primary);
+      --bs-btn-active-bg: #a0cedd;
+    }
+
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      box-shadow: none;
+    }
+  }
+
+  &.btn-secondary {
+    --bs-btn-hover-bg: #edf5f8;
+    --bs-btn-hover-color: #a0cedd;
+    --bs-btn-hover-border-color: #edf5f8;
+    --bs-btn-active-color: var(--app-primary);
+    --bs-btn-active-bg: #edf5f8;
+    --bs-btn-color: var(--app-primary);
+    --bs-btn-bg: #edf5f8;
+    --bs-btn-border-color: #edf5f8;
+    --bs-btn-disabled-color: #d2d2d2;
+    --bs-btn-disabled-bg: #fafaff;
+    --bs-btn-disabled-border-color: #fafaff;
+
+    &.active {
+      --bs-btn-active-color: var(--app-primary);
+      --bs-btn-active-bg: #edf5f8;
+    }
+  }
+
+  &.btn-light {
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-color: #0a0d14;
+    --bs-btn-hover-border-color: #e2e4e9;
+    --bs-btn-active-color: #0a0d14;
+    --bs-btn-active-bg: #ffffff;
+    --bs-btn-color: #525866;
+    --bs-btn-bg: #f6f8fa;
+    --bs-btn-border-color: #f6f8fa;
+    --bs-btn-disabled-color: #cdd0d5;
+    --bs-btn-disabled-bg: #f6f8fa;
+    --bs-btn-disabled-border-color: #f6f8fa;
+
+    &:active {
+      box-shadow: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px #e4e5e7;
+    }
+
+    &.active {
+      --bs-btn-active-color: #0a0d14;
+      --bs-btn-active-bg: #ffffff;
+    }
+  }
+
+  &.btn-outline-primary {
+    --bs-btn-color: var(--app-primary);
+    --bs-btn-border-color: var(--app-primary);
+    --bs-btn-hover-bg: var(--app-primary);
+    --bs-btn-hover-border-color: var(--app-primary);
+    --bs-btn-hover-color: #fff;
+  }
+
+  &.btn-outline-secondary {
+    --bs-btn-color: #525866;
+    --bs-btn-border-color: #e2e4e9;
+    --bs-btn-bg: #ffffff;
+    --bs-btn-hover-bg: #e2e4e9;
+    --bs-btn-hover-border-color: #e2e4e9;
+    --bs-btn-hover-color: #01353a;
+  }
+
+  &.btn-outline-danger {
+    --bs-btn-hover-color: #fff;
+  }
+
+  &.btn-white {
+    --bs-btn-hover-bg: #fafafa;
+    --bs-btn-hover-color: #01353a;
+    --bs-btn-hover-border-color: #fafafa;
+    --bs-btn-active-color: #01353a;
+    --bs-btn-active-bg: #ffffff;
+    --bs-btn-color: #01353a;
+    --bs-btn-bg: #ffffff;
+    --bs-btn-border-color: #e2e4e9;
+    --bs-btn-disabled-color: #d2d2d2;
+    --bs-btn-disabled-bg: #fafaff;
+    --bs-btn-disabled-border-color: #fafaff;
+
+    &.active {
+      --bs-btn-active-color: #025f68;
+      --bs-btn-active-bg: #ffffff;
+    }
+  }
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: #90d3ab;
+  --bs-dropdown-link-active-color: #01353a;
+  --bs-dropdown-item-padding-y: 0.5rem;
+
+  .dropdown-item {
+    font-size: 0.85rem;
+  }
+}
+
+.dropdown-toggle {
+  &::after {
+    display: none;
+  }
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: #bbbbbb;
+  }
+}
+
+.text-primary {
+  color: rgb(2, 95, 104) !important;
+}
+
+.text-success {
+  color: #38c793 !important;
+}
+
+.text-bg-success {
+  --bs-success-rgb: 56, 199, 147;
+}
+
+.text-bg-primary {
+  --bs-primary-rgb: 2, 95, 104;
+}
+
+.form-check-input {
+  --form-checked-color: #025f68;
+}
+
+.form-check-input:checked {
+  background-color: var(--form-checked-color);
+  border-color: var(--form-checked-color);
+}
+
+.modal-rounded {
+  --bs-modal-border-radius: 12px;
+}
+
+.progress {
+  --bs-progress-border-radius: 30px;
+}
+/* Bootstrap Overrides */
+
+.title-text {
+  color: #0a0d14;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.body-text {
+  font-size: 0.75rem;
+  color: #777777;
+  text-decoration: none;
+  margin-bottom: 0;
+
+  .text-highlight {
+    color: #66c28b;
+  }
+}
+
+/** Border Radius */
+@mixin borderRadius($name, $size) {
+  .#{$name} {
+    border-radius: $size !important;
+  }
+}
+
+@for $i from 0 through 2 {
+  @if $i == 0 {
+    @include borderRadius("border-radius", $border-radius * ($i + 1));
+  } @else {
+    @include borderRadius(#{"border-radius-" + $i}, $border-radius * ($i + 1));
+  }
+}
+
+@include borderRadius("modal-rounded .modal-content", $border-radius * 2);
+@include borderRadius("modal-rounded-1 .modal-content", $border-radius * 3);
+/** Border Radius */

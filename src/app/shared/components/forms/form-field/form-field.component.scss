@@ -1,0 +1,92 @@
+$border-radius: 10px;
+$shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 3px #e4e5e7;
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  & .input-group {
+    position: relative;
+
+    & .input-group-prefix,
+    & .input-group-suffix {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-group-prefix {
+      left: 0.65rem;
+    }
+
+    .input-group-suffix {
+      right: 0.65rem;
+      border-left: 1px solid #e2e4e9;
+      padding-left: 0.65rem;
+    }
+  }
+
+  & input:not(#country-search-box):focus,
+  & textarea:focus,
+  & select:focus {
+    outline: 0;
+    border-color: #0a0d14;
+    box-shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 3px #e4e5e7;
+
+    &::placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder {
+      color: blue !important;
+    }
+
+    &.error {
+      border-color: red;
+    }
+  }
+
+  & input:not(#country-search-box),
+  & textarea,
+  & select {
+    min-height: 40px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    border: 1px solid #e2e4e9;
+    box-shadow: 0px 1px 2px 0px #e4e5e73d;
+    transition: border-color 200ms ease-in, box-shadow 200ms ease-in;
+
+    &.error {
+      border-color: red;
+    }
+  }
+
+  & input:not(#country-search-box, .iti__tel-input),
+  & textarea,
+  & select,
+  & .iti__selected-flag {
+    padding: 0.65rem 0.75rem;
+  }
+
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
+
+  & .iti__selected-flag {
+    border-right: 1px solid #e2e4e9;
+  }
+
+  & label {
+    font-size: 0.8rem;
+    color: #0a0d14;
+    height: 1.2rem;
+    visibility: hidden;
+    transition: all 200ms ease-in-out;
+  }
+
+  &:has(*:focus) label {
+    visibility: visible;
+  }
+}

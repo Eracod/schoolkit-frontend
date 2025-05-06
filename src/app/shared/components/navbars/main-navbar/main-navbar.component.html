@@ -1,0 +1,52 @@
+<ng-template #navbarTemplate>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" #navbar>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <app-logo></app-logo>
+      </a>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <app-svg-icon [icon]="'menu-right'"></app-svg-icon>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          class="navbar-nav nav-justified mx-auto mb-2 mt-3 mt-lg-0 mb-lg-0 gap-2 gap-lg-3 gap-xl-5"
+        >
+          @for (item of menuItems; track $index) {
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [class.active]="activeMenuItem === item"
+              [attr.aria-current]="activeMenuItem === item ? 'page' : ''"
+              [routerLink]="item.route"
+            >
+              <div
+                class="d-flex justify-content-start justify-content-lg-center align-items-center gap-2"
+              >
+                <app-svg-icon [icon]="item.icon"></app-svg-icon>
+                <span class="icon-text">{{ item.name }}</span>
+              </div>
+            </a>
+          </li>
+          }
+        </ul>
+        <div class="d-flex gap-3 align-items-center action-menu">
+          <button class="btn" type="button">
+            <app-svg-icon [icon]="'bell'"></app-svg-icon>
+          </button>
+          <button class="btn" type="button" (click)="openKYC()">
+            <app-avatar text="Jude"></app-avatar>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacing"></div>
+</ng-template>

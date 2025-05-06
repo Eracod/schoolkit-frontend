@@ -1,0 +1,25 @@
+app-form-field {
+  width: 3.5em;
+
+  input {
+    min-height: 50px !important;
+    font-size: 1rem !important;
+    text-align: center;
+  }
+}
+
+.divider {
+  width: 10px;
+  border: 2px solid #0a0d14;
+}
+
+@media screen and (max-width: 485px) {
+  app-form-field {
+    width: 2.8em;
+
+    input {
+      min-height: 35px !important;
+      font-size: 0.75rem !important;
+    }
+  }
+}

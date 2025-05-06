@@ -1,0 +1,19 @@
+<div
+  class="d-flex align-items-center gap-3 flex-wrap"
+  [formGroup]="pinCodeForm"
+>
+  @for (item of pinCodeForm.controls.codes.controls; track $index) {
+  <app-form-field class="pin-code" [formGroup]="item">
+    <input
+      type="text"
+      [maxLength]="1"
+      (keyup)="onInput($event, $index)"
+      (paste)="onPaste($event)"
+      formControlName="code"
+      appFirstLetterCapitalize
+    />
+  </app-form-field>
+  @if ((($index + 1 )% separatePoint === 0) && !$last) {
+  <span class="divider"></span>
+  } }
+</div>
