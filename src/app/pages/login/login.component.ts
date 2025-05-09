@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
 import { IconDefinitions } from '@shared/components/svg-icon/models';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
 
 @Component({
   selector: 'app-login',
-  imports: [FormFieldComponent, SvgIconComponent, ReactiveFormsModule],
+  imports: [
+    FormFieldComponent,
+    SvgIconComponent,
+    ReactiveFormsModule,
+    RouterLink,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

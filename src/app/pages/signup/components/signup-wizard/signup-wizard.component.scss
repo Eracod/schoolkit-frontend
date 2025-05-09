@@ -1,0 +1,27 @@
+.signup-wizard {
+  display: flex;
+
+  aside {
+    width: 15em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+        179.66deg,
+        #073b4c 0.3%,
+        #075d5e 49.69%,
+        #075e5f 49.7%,
+        #076f68 75.79%,
+        #06977e 98.55%,
+        rgba(6, 214, 160, 0.7) 111.32%
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    padding: 1rem;
+  }
+
+  .signup-wizard-content {
+    width: calc(100% - 15em);
+    padding: 3rem;
+    overflow: auto;
+  }
+}

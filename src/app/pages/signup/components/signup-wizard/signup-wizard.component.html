@@ -1,0 +1,34 @@
+<main class="signup-wizard">
+  <aside>
+    <app-stepper>
+      <app-stepper-item
+        [step]="1"
+        [title]="'Personal Information'"
+        [isActive]="true"
+        [isCompleted]="false"
+      ></app-stepper-item>
+      <app-stepper-item
+        [step]="2"
+        [title]="'Create Password'"
+        [isActive]="true"
+        [isCompleted]="false"
+      ></app-stepper-item>
+
+      <app-stepper-item
+        [step]="3"
+        [title]="'Finish'"
+        [isActive]="true"
+        [isCompleted]="false"
+      ></app-stepper-item>
+    </app-stepper>
+  </aside>
+  <section class="signup-wizard-content">
+    <div class="container-lg">
+      @switch (activeStep) { @case (1) {
+      <app-personal-information></app-personal-information>
+      } @case (2) {
+      <app-create-password></app-create-password>
+      } @case (3) {} }
+    </div>
+  </section>
+</main>

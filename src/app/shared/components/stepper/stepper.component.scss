@@ -1,0 +1,52 @@
+app-stepper {
+  display: flex;
+
+  &.vertical-stepper {
+    flex-direction: column;
+
+    > *:not(:last-child) {
+      position: relative;
+      margin-bottom: 3em;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-left: 2px solid #b5b3b3;
+        height: 3em;
+        left: calc(calc(var(--step-size, 2em) / 2) - 3px);
+      }
+    }
+  }
+
+  &.horizontal-stepper {
+    width: max-content;
+    gap: 3rem;
+
+    > * {
+      position: relative;
+      > * {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .step {
+          background-color: #f6f6f6;
+        }
+      }
+    }
+
+    > *:not(:last-child) {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-top: 2px solid #b5b3b3;
+        width: calc(100% + 3rem);
+        left: 50%;
+        top: calc(calc(var(--step-size, 2em) / 2) - 3px);
+        z-index: 0;
+      }
+    }
+  }
+}

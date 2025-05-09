@@ -1,0 +1,59 @@
+.link {
+  text-decoration: none;
+  color: var(--app-primary);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+app-form-field {
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+  }
+}
+
+.password-pane {
+  position: relative;
+  transition: all ease-in 200ms;
+
+  input {
+    padding-right: 50px !important;
+  }
+
+  button {
+    --bs-btn-color: #868c98;
+
+    --webkit-tranform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 25em;
+    min-height: 23em;
+    border-radius: var(--app-border-radius-1);
+
+    header {
+      .title {
+        font-weight: 700;
+        font-size: 1.45rem;
+        color: var(--app-dark);
+      }
+    }
+  }
+}

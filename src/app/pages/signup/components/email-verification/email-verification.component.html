@@ -1,0 +1,70 @@
+<div class="container-lg">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <header class="text-center mb-4">
+          <p class="title mb-0">Create a new account</p>
+          <p class="body-text mb-0">Gain full access to any of our products</p>
+        </header>
+
+        @switch (currentView) { @case (VerificationView.Main) {
+        <!-- Main -->
+        <div class="d-grid gap-3 mb-3">
+          <button class="btn btn-outline-primary btn-lg" type="button">
+            <app-svg-icon
+              [icon]="'google'"
+              [size]="20"
+              class="me-3"
+            ></app-svg-icon>
+            <span>Continue with Google</span>
+          </button>
+
+          <button
+            class="btn btn-primary btn-lg"
+            type="button"
+            (click)="onEmailSignup()"
+          >
+            <span>Continue with E-mail</span>
+          </button>
+        </div>
+        <!-- Main -->
+        } @case (VerificationView.EmailVerification) {
+        <!-- Email Verification -->
+        <form [formGroup]="emailForm" (ngSubmit)="verifyEmail()">
+          <app-form-field class="mb-3">
+            <label for="email" class="visible">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              formControlName="email"
+              [class.error]="
+                emailForm.controls.email.touched &&
+                emailForm.controls.email.invalid
+              "
+            />
+          </app-form-field>
+
+          <div class="d-grid gap-4 mb-3">
+            <button class="btn btn-primary btn-lg" type="submit">
+              <span>Verify</span>
+            </button>
+          </div>
+        </form>
+        <!-- Email Verification -->
+        } }
+
+        <p class="body-text text-center mb-2">
+          By creating an account, you agree to the
+          <a class="link fw-bold" routerLink="/terms">Terms of use</a> and
+          <a class="link fw-bold" routerLink="/privacy"> Privacy Policy</a>.
+        </p>
+        <p class="body-text text-center">
+          Already have an account?
+          <a class="link fw-bold" routerLink="/">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
