@@ -6,6 +6,7 @@ import {
   ValidatorFn,
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
+  Validators,
 } from '@angular/forms';
 import {
   CountryISO,
@@ -60,10 +61,14 @@ export class FormTelInputComponent implements OnInit, ControlValueAccessor {
   public searchCountryField = [
     SearchCountryField.Iso2,
     SearchCountryField.Name,
+    SearchCountryField.DialCode,
   ];
   public inputID = `tel-${Date.now()}${Math.round(Math.random() * 1e5)}`;
   public selectedCountryISO!: CountryISO;
-  public inputControl = new FormControl<Telephone | null>(null, [TelValidator]);
+  public inputControl = new FormControl<Telephone | null>(null, [
+    Validators.required,
+    TelValidator,
+  ]);
 
   private _onChange: any;
   private _onTouched: any;

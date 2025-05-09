@@ -1,4 +1,7 @@
-<div class="d-flex aligm-items-center gap-2">
+<div
+  class="d-flex aligm-items-center gap-2"
+  [class.active]="isActive || isCompleted"
+>
   <div class="step">
     <span>{{ step }}</span>
   </div>

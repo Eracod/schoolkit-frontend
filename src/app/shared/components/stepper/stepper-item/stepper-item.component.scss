@@ -22,3 +22,14 @@
   color: #b5b3b3;
   font-weight: 500;
 }
+
+.active {
+  .title {
+    color: #ffd166;
+  }
+
+  .step {
+    color: #ffd166;
+    border-color: #ffd166;
+  }
+}

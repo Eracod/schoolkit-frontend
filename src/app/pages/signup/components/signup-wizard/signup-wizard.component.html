@@ -1,25 +1,14 @@
 <main class="signup-wizard">
   <aside>
     <app-stepper>
+      @for (item of steps; track $index) {
       <app-stepper-item
-        [step]="1"
-        [title]="'Personal Information'"
-        [isActive]="true"
-        [isCompleted]="false"
+        [step]="item.step"
+        [title]="item.title"
+        [isActive]="activeStep === item.step"
+        [isCompleted]="item.isCompleted"
       ></app-stepper-item>
-      <app-stepper-item
-        [step]="2"
-        [title]="'Create Password'"
-        [isActive]="true"
-        [isCompleted]="false"
-      ></app-stepper-item>
-
-      <app-stepper-item
-        [step]="3"
-        [title]="'Finish'"
-        [isActive]="true"
-        [isCompleted]="false"
-      ></app-stepper-item>
+      }
     </app-stepper>
   </aside>
   <section class="signup-wizard-content">
@@ -28,7 +17,27 @@
       <app-personal-information></app-personal-information>
       } @case (2) {
       <app-create-password></app-create-password>
-      } @case (3) {} }
+      } @case (3) {
+      <div class="col-12 col-lg-6 mx-auto">
+        <div
+          class="welcome-message d-flex flex-column align-items-center text-center"
+        >
+          <img
+            src="/images/happy-announcement.svg"
+            alt="Announcement"
+            class="mb-3"
+            draggable="false"
+          />
+          <p class="title-text">Welcome to School Kit</p>
+          <p>
+            You are all set to start using School Kit. You can now log in and
+            start exploring the features and tools available to you.
+          </p>
+
+          <button class="btn btn-primary btn-lg">Finish</button>
+        </div>
+      </div>
+      } }
     </div>
   </section>
 </main>

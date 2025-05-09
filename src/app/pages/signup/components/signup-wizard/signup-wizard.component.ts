@@ -16,5 +16,39 @@ import { CreatePasswordComponent } from './components/create-password/create-pas
   styleUrl: './signup-wizard.component.scss',
 })
 export class SignupWizardComponent {
-  public activeStep = 2;
+  public activeStep = 1;
+  public steps = [
+    {
+      title: 'Personal Information',
+      step: 1,
+      isCompleted: false,
+    },
+    {
+      title: 'Create Password',
+      step: 2,
+      isCompleted: false,
+    },
+    {
+      title: 'Finish',
+      step: 3,
+      isCompleted: false,
+    },
+  ];
+  personalInformationData: any;
+  passwordData: any;
+
+  public onStepChange(step: number, data: any): void {
+    if (this.activeStep === 1) {
+      this.personalInformationData = data;
+    }
+
+    if (this.activeStep === 2) {
+      this.passwordData = data;
+    }
+
+    this.activeStep = step;
+    this.steps.forEach((s) => {
+      s.isCompleted = s.step < step;
+    });
+  }
 }

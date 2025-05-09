@@ -1,27 +1,59 @@
 <div class="col-12 col-sm-11 col-md-10 col-lg-8 mx-auto">
-  <form>
+  <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <p class="title-text mb-0">Personal Information</p>
       <p class="body-text mb-0">Let's get to know you</p>
     </div>
     <app-form-field class="mb-3">
       <label for="first-name" class="visible">First Name</label>
-      <input class="form-control" placeholder="First Name" id="first-name" />
+      <input
+        class="form-control"
+        placeholder="First Name"
+        id="first-name"
+        formControlName="firstName"
+        [class.error]="
+          fc.firstName.invalid && (fc.firstName.dirty || fc.firstName.touched)
+        "
+      />
     </app-form-field>
 
     <app-form-field class="mb-3">
       <label for="middle-name" class="visible">Middle Name</label>
-      <input class="form-control" placeholder="Middle Name" id="middle-name" />
+      <input
+        class="form-control"
+        placeholder="Middle Name"
+        id="middle-name"
+        formControlName="middleName"
+        [class.error]="
+          fc.middleName.invalid &&
+          (fc.middleName.dirty || fc.middleName.touched)
+        "
+      />
     </app-form-field>
 
     <app-form-field class="mb-3">
       <label for="last-name" class="visible">Last Name</label>
-      <input class="form-control" placeholder="Last Name" id="last-name" />
+      <input
+        class="form-control"
+        placeholder="Last Name"
+        id="last-name"
+        formControlName="lastName"
+        [class.error]="
+          fc.lastName.invalid && (fc.lastName.dirty || fc.lastName.touched)
+        "
+      />
     </app-form-field>
 
     <app-form-field class="mb-3">
       <label for="gender" class="visible">Gender</label>
-      <select class="form-select" id="gender">
+      <select
+        class="form-select"
+        id="gender"
+        formControlName="gender"
+        [class.error]="
+          fc.gender.invalid && (fc.gender.dirty || fc.gender.touched)
+        "
+      >
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
@@ -29,12 +61,22 @@
 
     <app-form-field class="mb-3">
       <label for="email" class="visible">Email</label>
-      <input class="form-control" placeholder="example@mail.com" id="email" />
+      <input
+        class="form-control"
+        placeholder="example@mail.com"
+        id="email"
+        formControlName="email"
+        [class.error]="fc.email.invalid && (fc.email.dirty || fc.email.touched)"
+      />
     </app-form-field>
 
     <app-form-field class="mb-5">
       <label for="phone" class="visible">Phone</label>
-      <app-form-tel-input id="phone"></app-form-tel-input>
+      <app-form-tel-input
+        id="phone"
+        formControlName="phone"
+        [class.error]="fc.phone.invalid && (fc.phone.dirty || fc.phone.touched)"
+      ></app-form-tel-input>
     </app-form-field>
 
     <button class="btn btn-primary btn-lg" type="submit">Next</button>
