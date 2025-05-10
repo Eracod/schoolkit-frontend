@@ -74,6 +74,10 @@ $shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 3px #e4e5e7;
     display: none;
   }
 
+  input[readonly] {
+    background-color: #f5f6fa;
+  }
+
   & .iti__selected-flag {
     border-right: 1px solid #e2e4e9;
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -45,6 +45,11 @@ const SpecialCharacterValidatorPattern = GetSpecialCharacterValidatorPattern({
   styleUrl: './create-password.component.scss',
 })
 export class CreatePasswordComponent {
+  @Output() public onStepChange = new EventEmitter<{
+    step: number;
+    data: any;
+  }>();
+
   public passwordForm = new FormGroup({
     password: new FormControl('', [
       NumberValidator({ min: 1 }),
@@ -193,6 +198,11 @@ export class CreatePasswordComponent {
   }
 
   submit() {
-    this.router.navigateByUrl('/auth/login');
+    if (this.passwordForm.invalid) {
+      this.passwordForm.markAllAsTouched();
+      return;
+    }
+
+    this.onStepChange.emit({ step: 3, data: this.passwordForm.value });
   }
 }

@@ -14,9 +14,14 @@
   <section class="signup-wizard-content">
     <div class="container-lg">
       @switch (activeStep) { @case (1) {
-      <app-personal-information></app-personal-information>
+      <app-personal-information
+        [personalData]="personalData"
+        (onStepChange)="onStepChange($event)"
+      ></app-personal-information>
       } @case (2) {
-      <app-create-password></app-create-password>
+      <app-create-password
+        (onStepChange)="onStepChange($event)"
+      ></app-create-password>
       } @case (3) {
       <div class="col-12 col-lg-6 mx-auto">
         <div
@@ -34,7 +39,13 @@
             start exploring the features and tools available to you.
           </p>
 
-          <button class="btn btn-primary btn-lg">Finish</button>
+          <button
+            class="btn btn-primary btn-lg"
+            type="button"
+            (click)="login()"
+          >
+            Finish
+          </button>
         </div>
       </div>
       } }

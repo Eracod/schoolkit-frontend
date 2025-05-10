@@ -1,5 +1,5 @@
 @if (isEmailVerified) {
-<app-signup-wizard></app-signup-wizard>
+<app-signup-wizard [email]="email"></app-signup-wizard>
 } @else {
 <app-email-verification
   (emailVerified)="onEmailVerified($event)"

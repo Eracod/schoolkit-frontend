@@ -19,7 +19,8 @@ export class SignupComponent {
   ) {}
 
   ngOnInit() {
-    this.isEmailVerified = !!this.activatedRoute.snapshot.queryParams['email'];
+    this.email = this.activatedRoute.snapshot.queryParams['email'];
+    this.isEmailVerified = !!this.email;
   }
 
   onEmailVerified(email: string) {

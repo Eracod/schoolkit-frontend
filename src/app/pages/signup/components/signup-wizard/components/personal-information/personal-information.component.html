@@ -5,7 +5,9 @@
       <p class="body-text mb-0">Let's get to know you</p>
     </div>
     <app-form-field class="mb-3">
-      <label for="first-name" class="visible">First Name</label>
+      <label for="first-name" class="visible"
+        >First Name<span class="text-danger">*</span></label
+      >
       <input
         class="form-control"
         placeholder="First Name"
@@ -32,7 +34,9 @@
     </app-form-field>
 
     <app-form-field class="mb-3">
-      <label for="last-name" class="visible">Last Name</label>
+      <label for="last-name" class="visible"
+        >Last Name <span class="text-danger">*</span></label
+      >
       <input
         class="form-control"
         placeholder="Last Name"
@@ -45,7 +49,9 @@
     </app-form-field>
 
     <app-form-field class="mb-3">
-      <label for="gender" class="visible">Gender</label>
+      <label for="gender" class="visible"
+        >Gender <span class="text-danger">*</span></label
+      >
       <select
         class="form-select"
         id="gender"
@@ -54,24 +60,30 @@
           fc.gender.invalid && (fc.gender.dirty || fc.gender.touched)
         "
       >
+        <option value="" disabled selected hidden>Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
     </app-form-field>
 
     <app-form-field class="mb-3">
-      <label for="email" class="visible">Email</label>
+      <label for="email" class="visible"
+        >Email <span class="text-danger">*</span></label
+      >
       <input
         class="form-control"
         placeholder="example@mail.com"
         id="email"
         formControlName="email"
+        [readOnly]="true"
         [class.error]="fc.email.invalid && (fc.email.dirty || fc.email.touched)"
       />
     </app-form-field>
 
     <app-form-field class="mb-5">
-      <label for="phone" class="visible">Phone</label>
+      <label for="phone" class="visible"
+        >Phone <span class="text-danger">*</span></label
+      >
       <app-form-tel-input
         id="phone"
         formControlName="phone"
