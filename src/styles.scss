@@ -188,6 +188,12 @@ body {
   }
 }
 
+.menu-tooltip {
+  min-width: 6em;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
 .text-primary {
   color: rgb(2, 95, 104) !important;
 }

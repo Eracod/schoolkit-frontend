@@ -16,11 +16,14 @@
               id="email"
               placeholder="Enter your email"
               formControlName="email"
+              [class.error]="
+                fc.email.invalid && (fc.email.dirty || fc.email.touched)
+              "
             />
           </app-form-field>
 
           <app-form-field class="mb-4">
-            <label for="email" class="visible">Password</label>
+            <label for="password" class="visible">Password</label>
             <div class="password-pane">
               <input
                 [type]="passwordType"
@@ -29,6 +32,10 @@
                 class="form-control"
                 placeholder="Password"
                 formControlName="password"
+                [class.error]="
+                  fc.password.invalid &&
+                  (fc.password.dirty || fc.password.touched)
+                "
               />
               @if (fc.password.value) {
               <button type="button" class="btn" (click)="toggleMode()">
@@ -39,7 +46,12 @@
           </app-form-field>
 
           <div class="d-grid gap-4 mb-3">
-            <button class="btn btn-primary btn-lg">Log in</button>
+            <button
+              class="btn btn-primary btn-lg"
+              [disabled]="loginForm.invalid"
+            >
+              Log in
+            </button>
             <button class="btn btn-outline-primary btn-lg">
               <app-svg-icon
                 [icon]="'google'"

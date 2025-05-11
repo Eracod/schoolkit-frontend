@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
 import { IconDefinitions } from '@shared/components/svg-icon/models';
@@ -18,8 +23,8 @@ import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component
 })
 export class LoginComponent {
   public loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
   });
   public passwordType: 'password' | 'text' = 'password';
 

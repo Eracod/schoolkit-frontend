@@ -15,4 +15,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/signup/signup.component').then((m) => m.SignupComponent),
   },
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    data: { description: 'Dashboard overview' },
+    loadComponent: () =>
+      import('./pages/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
 ];

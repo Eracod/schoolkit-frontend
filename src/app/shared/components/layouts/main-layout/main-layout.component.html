@@ -1,0 +1,94 @@
+<main class="d-flex">
+  <div class="sidebar">
+    <div class="d-flex flex-column">
+      <div class="sidebar-header">
+        <div class="d-flex justify-content-between mb-3">
+          <button class="btn" type="button" (click)="toggleSidebar()">
+            <img src="icons/close-white.svg" alt="Close" class="icon" />
+          </button>
+
+          <button class="btn">
+            <img
+              src="icons/log-out-white.svg"
+              alt="Log out"
+              class="icon me-1"
+            />
+            <span>Log out</span>
+          </button>
+        </div>
+
+        <div class="logo d-flex justify-content-center">
+          <img src="favicons/android-chrome-512x512.png" alt="Eagule Logo" />
+        </div>
+      </div>
+
+      <ul class="nav nav-pills flex-column gap-3 sidebar-pills" role="menu">
+        @for (item of menu.items.slice(0, menu.items.length - 1); track $index)
+        {
+        <li class="nav-item">
+          <a
+            [tooltipClass]="'menu-tooltip'"
+            [ngbTooltip]="item.title"
+            [routerLink]="item.route"
+            class="nav-link"
+            [attr.aria-label]="item.title"
+            [class.active]="item === activeMenuItem"
+          >
+            <app-svg-icon [icon]="item.icon" [size]="25"></app-svg-icon>
+            <span class="menu-title">{{ item.title }}</span>
+          </a>
+        </li>
+        }
+      </ul>
+    </div>
+
+    <ul class="nav nav-pills sidebar-pills flex-column" role="menu">
+      @for (item of menu.items.slice(menu.items.length - 1); track $index) {
+      <li class="nav-item">
+        <a
+          [tooltipClass]="'menu-tooltip'"
+          [ngbTooltip]="item.title"
+          [routerLink]="item.route"
+          class="nav-link"
+          [attr.aria-label]="item.title"
+          [class.active]="item === activeMenuItem"
+        >
+          <app-svg-icon [icon]="item.icon" [size]="25"></app-svg-icon>
+          <span class="menu-title">{{ item.title }}</span>
+        </a>
+      </li>
+      }
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [attr.aria-label]="'create school'"
+          [tooltipClass]="'menu-tooltip'"
+          [ngbTooltip]="'Create School'"
+        >
+          <app-svg-icon [icon]="'add'" [size]="25"></app-svg-icon>
+          <span class="menu-title">Create School</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [attr.aria-label]="'logout'"
+          [tooltipClass]="'menu-tooltip'"
+          [ngbTooltip]="'Log Out'"
+        >
+          <app-svg-icon [icon]="'logout'" [size]="25"></app-svg-icon>
+          <span class="menu-title">Log Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <section class="main-content">
+    <div
+      class="d-flex align-items-center justify-content-end justify-content-sm-between gap-3 w-100"
+    >
+      <div class="d-flex align-items-center gap-3"></div>
+    </div>
+    <ng-content></ng-content>
+  </section>
+</main>
