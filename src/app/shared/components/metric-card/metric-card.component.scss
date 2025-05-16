@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    background-color: #fff;
+    box-shadow: 6px 6px 54px 0px #0000000d;
+    border-radius: 15px;
+    border: 0;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+
+      .title {
+        font-weight: 400;
+        font-size: 0.85rem;
+        color: #202224;
+      }
+
+      .title-lg {
+        font-weight: 700;
+        font-size: 1.45rem;
+        color: #202224;
+      }
+
+      .small {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .icon-pane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
+    background-color: var(--app-light);
+    border-radius: 20px;
+  }
+}

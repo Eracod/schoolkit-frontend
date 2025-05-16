@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex flex-column">
+        <p class="title mb-0">{{ title }}</p>
+        <p class="title-lg mb-0">{{ value }}</p>
+      </div>
+      <div class="icon-pane" [style.backgroundColor]="iconBgColor">
+        <app-svg-icon
+          [icon]="icon"
+          [size]="iconSize"
+          [color]="iconColor"
+        ></app-svg-icon>
+      </div>
+    </div>
+
+    <p class="small mb-0 d-flex align-items-center gap-2">
+      @if (trendIcon) {
+      <app-svg-icon
+        [icon]="trendIcon"
+        [size]="14"
+        [color]="trendIconColor"
+      ></app-svg-icon>
+      }
+      <span [style.color]="trendIconColor"
+        >{{ percent < 0 ? percent * -1 : percent }}%</span
+      >
+      <span>{{ percentText }}</span>
+    </p>
+  </div>
+</div>

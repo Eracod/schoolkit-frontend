@@ -1,5 +1,5 @@
-@if (avatar.url) { @if (!isBrokenImage) {
-<img [src]="avatar.url" [alt]="avatar.text" (error)="isBrokenImage = true" />
+@if (src) { @if (!isBrokenImage) {
+<img [src]="src" [alt]="text" (error)="isBrokenImage = true" />
 } @else {
 <ng-container [ngTemplateOutlet]="initialTemplate"></ng-container>
 } } @else {

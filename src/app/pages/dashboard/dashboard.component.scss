@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--app-dark);
+  }
+}

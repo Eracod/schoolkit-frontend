@@ -29,6 +29,7 @@ export class SignupComponent {
       queryParams: { email },
       queryParamsHandling: 'merge',
     });
+    this.email = email;
     this.isEmailVerified = true;
   }
 }

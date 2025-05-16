@@ -32,6 +32,7 @@ export class SvgIconComponent implements OnInit, OnChanges {
   @Input() size = 24;
   @Input({ alias: 'width' }) sizeWidth?: number;
   @Input({ alias: 'height' }) sizeHeight?: number;
+  @Input() color = 'currentColor';
 
   @ViewChild('svgTemplate', { static: true }) svgTemplate!: TemplateRef<any>;
 

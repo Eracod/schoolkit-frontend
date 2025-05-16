@@ -1,0 +1,19 @@
+<div class="card">
+  <img
+    [src]="src || 'images/default-image.svg'"
+    alt=""
+    class="card-img-top"
+    (error)="this.src = 'images/default-image.svg'"
+  />
+  <div class="card-body">
+    <p class="title mb-0">{{ name }}</p>
+    <p class="subtitle d-flex align-items-center mb-0 gap-2">
+      <app-svg-icon
+        [icon]="badgeIcon"
+        [size]="16"
+        [color]="'#073B4C'"
+      ></app-svg-icon>
+      <span>{{ designation }}</span>
+    </p>
+  </div>
+</div>
