@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="mb-3">
       <p class="fw-bold">Administration</p>
       <div>
         <owl-carousel-o [options]="options">
@@ -55,6 +55,14 @@
           }
         </owl-carousel-o>
       </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <p class="fw-bold mb-0">All Payments</p>
+      </div>
+
+      <app-payment-chart></app-payment-chart>
     </div>
   </div>
 </app-main-layout>

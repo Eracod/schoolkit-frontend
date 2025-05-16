@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MainLayoutComponent } from '@shared/components/layouts/main-layout/main-layout.component';
-import { MetricCardComponent } from '../../shared/components/metric-card/metric-card.component';
-import { ProfileCardComponent } from '../../shared/components/profile-card/profile-card.component';
+import { MetricCardComponent } from '@shared/components/metric-card/metric-card.component';
+import { ProfileCardComponent } from '@shared/components/profile-card/profile-card.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { PaymentChartComponent } from './components/payment-chart/payment-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
     MetricCardComponent,
     ProfileCardComponent,
     CarouselModule,
+    PaymentChartComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -69,6 +71,30 @@ export class DashboardComponent {
       name: 'Bob Brown',
       designation: 'Data Scientist',
       src: 'assets/images/user4.png',
+    },
+    {
+      id: 'id-5',
+      name: 'Charlie Davis',
+      designation: 'DevOps Engineer',
+      src: 'assets/images/user5.png',
+    },
+    {
+      id: 'id-6',
+      name: 'Eve White',
+      designation: 'QA Engineer',
+      src: 'assets/images/user6.png',
+    },
+    {
+      id: 'id-7',
+      name: 'Frank Green',
+      designation: 'Business Analyst',
+      src: 'assets/images/user7.png',
+    },
+    {
+      id: 'id-8',
+      name: 'Grace Black',
+      designation: 'Marketing Specialist',
+      src: 'assets/images/user8.png',
     },
   ];
 }
