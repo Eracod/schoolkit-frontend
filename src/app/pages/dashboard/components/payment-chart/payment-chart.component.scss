@@ -4,5 +4,13 @@
 
   .card {
     border-radius: 8px;
+
+    .card-body {
+      .dot {
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 50%;
+      }
+    }
   }
 }

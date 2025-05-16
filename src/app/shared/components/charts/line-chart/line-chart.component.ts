@@ -38,6 +38,9 @@ export class LineChartComponent implements OnInit {
           tooltip: {
             mode: 'index',
           },
+          legend: {
+            display: false,
+          },
         },
         interaction: {
           mode: 'nearest',

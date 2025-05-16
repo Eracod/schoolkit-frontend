@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { LineChartComponent } from '@shared/components/charts/line-chart/line-chart.component';
 import { ChartData } from 'chart.js';
@@ -5,7 +6,7 @@ import { min } from 'rxjs';
 
 @Component({
   selector: 'app-payment-chart',
-  imports: [LineChartComponent],
+  imports: [LineChartComponent, NgTemplateOutlet],
   templateUrl: './payment-chart.component.html',
   styleUrl: './payment-chart.component.scss',
 })

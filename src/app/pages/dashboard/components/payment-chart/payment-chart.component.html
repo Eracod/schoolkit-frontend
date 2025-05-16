@@ -6,5 +6,26 @@
       [showGridX]="false"
       [showGridY]="true"
     ></app-line-chart>
+
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      @for (dataset of data.datasets; track $index) {
+      <ng-container
+        [ngTemplateOutlet]="legendTemplate"
+        [ngTemplateOutletContext]="{
+          title: dataset.label,
+          color: dataset.backgroundColor
+        }"
+      ></ng-container>
+      }
+    </div>
   </div>
 </div>
+
+<!-- Templates -->
+<ng-template let-title="title" let-color="color" #legendTemplate>
+  <div class="d-flex align-items-center gap-2">
+    <span class="dot" [style.backgroundColor]="color"></span>
+    <span class="small fw-bold">{{ title }}</span>
+  </div>
+</ng-template>
+<!-- Templates -->
