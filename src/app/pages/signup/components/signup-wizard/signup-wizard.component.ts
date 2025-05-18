@@ -3,7 +3,8 @@ import { StepperComponent } from '@shared/components/stepper/stepper.component';
 import { StepperItemComponent } from '@shared/components/stepper/stepper-item/stepper-item.component';
 import { PersonalInformationComponent } from './components/personal-information/personal-information.component';
 import { CreatePasswordComponent } from './components/create-password/create-password.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { LogoComponent } from '../../../../shared/components/logo/logo.component';
 
 @Component({
   selector: 'app-signup-wizard',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
     StepperItemComponent,
     PersonalInformationComponent,
     CreatePasswordComponent,
+    LogoComponent,
+    RouterLink,
   ],
   templateUrl: './signup-wizard.component.html',
   styleUrl: './signup-wizard.component.scss',

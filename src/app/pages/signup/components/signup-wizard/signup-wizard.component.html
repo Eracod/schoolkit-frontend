@@ -1,5 +1,10 @@
 <main class="signup-wizard">
   <aside>
+    <div class="py-3">
+      <a routerLink="/">
+        <app-logo></app-logo>
+      </a>
+    </div>
     <app-stepper>
       @for (item of steps; track $index) {
       <app-stepper-item
