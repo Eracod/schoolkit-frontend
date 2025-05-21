@@ -24,4 +24,15 @@ export const routes: Routes = [
         (m) => m.DashboardComponent
       ),
   },
+  {
+    path: 'create-institution',
+    title: 'Create Institution',
+    data: {
+      description: 'Create an institution that will then be added schools',
+    },
+    loadComponent: () =>
+      import(
+        './pages/institution/create-institution/create-institution.component'
+      ).then((m) => m.CreateInstitutionComponent),
+  },
 ];
