@@ -1,0 +1,17 @@
+<div class="modal-header align-items-center">
+  <p class="modal-title mb-0">Create Subject</p>
+
+  <button type="button" class="btn-close" (click)="close()"></button>
+</div>
+
+<div class="modal-body">
+  <app-form-field>
+    <label for="session-name" class="visible">Subject Name</label>
+    <input type="text" placeholder="Enter name of subject" />
+  </app-form-field>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary">Create</button>
+  <button type="button" class="btn btn-light" (click)="close()">Cancel</button>
+</div>

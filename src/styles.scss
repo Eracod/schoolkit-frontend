@@ -219,6 +219,11 @@ body {
   border-color: var(--form-checked-color);
 }
 
+.modal {
+  --bs-modal-inner-border-radius: 20px;
+  --bs-modal-border-radius: 20px;
+}
+
 .modal-rounded {
   --bs-modal-border-radius: 12px;
 }
@@ -244,6 +249,66 @@ body {
 
   .text-highlight {
     color: #66c28b;
+  }
+}
+
+.table {
+  --bs-table-bg: #f0f6fa;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-color-type: #121212;
+  --bs-table-bg-type: #06d6a01a;
+}
+
+.table > :not(caption) > * > * {
+  font-size: 0.85rem;
+}
+
+.pagination {
+  --bs-pagination-active-bg: #fff;
+  --bs-pagination-active-color: var(--app-primary);
+  --bs-pagination-active-border-color: var(--app-primary);
+  --bs-pagination-color: var(--app-primary);
+  --bs-pagination-hover-color: var(--app-primary);
+
+  gap: 10px;
+
+  .page-item {
+    .page-link {
+      border-radius: 8px;
+      position: relative;
+
+      &[aria-label="Next"],
+      &[aria-label="Previous"] {
+        span {
+          visibility: hidden;
+        }
+      }
+
+      &[aria-label="Next"]::after,
+      &[aria-label="Previous"]::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        height: 15px;
+        width: 15px;
+      }
+
+      &[aria-label="Next"]::after {
+        background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20%20%20width%3D%228%22%20%20%20height%3D%2213%22%20%20%20viewBox%3D%220%200%208%2013%22%20%20%20fill%3D%22none%22%20%20%20version%3D%221.1%22%20%20%20id%3D%22svg1%22%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%20%20%20%20%20id%3D%22defs1%22%20%2F%3E%3Cpath%20%20%20%20%20d%3D%22M0.339844%201.91L4.91984%206.5L0.339844%2011.09L1.74984%2012.5L7.74984%206.5L1.74984%200.5L0.339844%201.91Z%22%20%20%20%20%20fill%3D%22%23073B4C%22%20%20%20%20%20id%3D%22path1%22%20%2F%3E%3C%2Fsvg%3E);
+      }
+
+      &[aria-label="Previous"]::after {
+        background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20%20%20width%3D%228%22%20%20%20height%3D%2213%22%20%20%20viewBox%3D%220%200%208%2013%22%20%20%20fill%3D%22none%22%20%20%20version%3D%221.1%22%20%20%20id%3D%22svg1%22%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%20%20%20%20%20id%3D%22defs1%22%20%2F%3E%3Cpath%20%20%20%20%20d%3D%22M%207.74984%2C11.09%203.169844%2C6.5%207.74984%2C1.91%206.339844%2C0.5%20l%20-6%2C6%206%2C6%20z%22%20%20%20%20%20fill%3D%22%23073b4c%22%20%20%20%20%20id%3D%22path1%22%20%2F%3E%3C%2Fsvg%3E);
+      }
+    }
   }
 }
 

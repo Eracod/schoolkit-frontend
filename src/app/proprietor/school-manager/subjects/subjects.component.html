@@ -1,1 +1,34 @@
-<p>subjects works!</p>
+<p class="title">Subjects</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      @for (column of columns; track $index) {
+      <th scope="col">{{ column.name }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of subjects; track $index) {
+    <tr>
+      <td [vAlign]="'middle'">{{ item.name }}</td>
+      <td [vAlign]="'middle'">{{ item.teacherCount }}</td>
+      <td [vAlign]="'middle'">{{ item.classCount }}</td>
+      <td [vAlign]="'middle'">{{ item.studentCount }}</td>
+      <td class="text-end" [vAlign]="'middle'">
+        <button class="btn btn-primary" type="button">View</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<div class="my-3 d-flex justify-content-center">
+  <ngb-pagination
+    [collectionSize]="(total$ | async)!"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [ellipses]="true"
+  >
+  </ngb-pagination>
+</div>

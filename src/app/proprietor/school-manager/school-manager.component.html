@@ -30,9 +30,19 @@
         >
       </app-nav>
 
-      <button type="button" class="btn btn-primary">
+      @switch (activeTab) { @case (SchoolManagerTabs.Session) {
+      <button type="button" class="btn btn-primary" (click)="createSession()">
         <span>Create Session</span>
       </button>
+      } @case (SchoolManagerTabs.Class) {
+      <button type="button" class="btn btn-primary" (click)="createClass()">
+        <span>Create Class</span>
+      </button>
+      } @case (SchoolManagerTabs.Subject) {
+      <button type="button" class="btn btn-primary" (click)="createSubject()">
+        <span>Create Subject</span>
+      </button>
+      } }
     </div>
 
     <div class="row mb-3">
@@ -88,6 +98,6 @@
       </div>
     </div>
 
-    <router-outlet />
+    <router-outlet (activate)="onRouteActivated($event)" />
   </div>
 </app-main-layout>

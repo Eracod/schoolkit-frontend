@@ -1,0 +1,66 @@
+<div class="modal-header align-items-center">
+  <p class="modal-title mb-0">Create Session</p>
+
+  <button type="button" class="btn-close" (click)="close()"></button>
+</div>
+
+<div class="modal-body">
+  <div class="row mb-3">
+    <div class="col-12">
+      <app-form-field>
+        <label for="session-name" class="visible">Session Name</label>
+        <input type="text" placeholder="Enter session name (2024/2025)" />
+      </app-form-field>
+    </div>
+  </div>
+
+  <div class="row mb-3 mb-lg-0">
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="session-name" class="visible">First Term Start Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-form-field>
+        <label for="session-name" class="visible">First Term End Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+  </div>
+
+  <div class="row mb-3 mb-lg-0">
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="session-name" class="visible">Second Term Start Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-form-field>
+        <label for="session-name" class="visible">Second Term End Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+  </div>
+
+  <div class="row mb-3 mb-lg-0">
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="session-name" class="visible">Third Term Start Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-form-field>
+        <label for="session-name" class="visible">Third Term End Date</label>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </app-form-field>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary">Create</button>
+  <button type="button" class="btn btn-light" (click)="close()">Cancel</button>
+</div>
