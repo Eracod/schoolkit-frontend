@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MainLayoutComponent } from '@shared/components/layouts/main-layout/main-layout.component';
-import { FormFieldComponent } from '../../../shared/components/forms/form-field/form-field.component';
+import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
 
 @Component({
   selector: 'app-create-institution',

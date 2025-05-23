@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
 import { Menu, MenuItem } from '@shared/models/menu.model';
@@ -17,6 +17,7 @@ import { SearchComponent } from '@shared/components/search/search.component';
     AvatarComponent,
     LogoComponent,
     SearchComponent,
+    RouterLinkActive,
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
@@ -24,8 +25,12 @@ import { SearchComponent } from '@shared/components/search/search.component';
 export class MainLayoutComponent implements OnInit {
   public menu: Menu = {
     items: [
-      { title: 'Dashboard', icon: 'home', route: '/dashboard' },
-      { title: 'School Management', icon: 'books', route: '/schools' },
+      { title: 'Dashboard', icon: 'home', route: '/proprietor' },
+      {
+        title: 'School Management',
+        icon: 'books',
+        route: '/proprietor/school-manager',
+      },
       { title: 'Payments', icon: 'credit-card', route: '/payments' },
       { title: 'Staffs', icon: 'person', route: '/staffs' },
       { title: 'Students', icon: 'school', route: '/students' },

@@ -1,0 +1,93 @@
+<app-main-layout>
+  <div class="container-lg">
+    <header class="mb-3">
+      <p class="title mb-0">School Management</p>
+      <p class="mb-0">Name of school</p>
+    </header>
+
+    <div
+      class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+    >
+      <app-nav>
+        <a
+          routerLink="/proprietor/school-manager"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="btn"
+          >Session</a
+        >
+        <a
+          routerLink="/proprietor/school-manager/classes"
+          routerLinkActive="active"
+          class="btn"
+          >Class</a
+        >
+        <a
+          routerLink="/proprietor/school-manager/subjects"
+          routerLinkActive="active"
+          class="btn"
+          >Subject</a
+        >
+      </app-nav>
+
+      <button type="button" class="btn btn-primary">
+        <span>Create Session</span>
+      </button>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center gap-2">
+              <div>
+                <p class="fw-bold mb-0">Session</p>
+              </div>
+              <div class="vr"></div>
+              <div class="d-flex flex-column">
+                <p>2024/2025</p>
+                <p class="mb-0 small text-muted">12/09/2024 - 12/05/2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center gap-2">
+              <div>
+                <p class="fw-bold mb-0">Term</p>
+              </div>
+              <div class="vr"></div>
+              <div class="d-flex flex-column">
+                <p>2nd Term</p>
+                <p class="mb-0 small text-muted">12/09/2024 - 12/05/2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex flex-column w-50">
+                <p class="fw-bold">Result Date</p>
+                <p class="mb-0">12/05/2025</p>
+              </div>
+              <div class="vr"></div>
+              <div class="d-flex flex-column w-50">
+                <p class="fw-bold">Classes</p>
+                <p class="mb-0 fw-bold text-muted">30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet />
+  </div>
+</app-main-layout>

@@ -35,7 +35,6 @@
           </div>
         </div>
       </div>
-
       <!-- Profile -->
 
       <ul class="nav nav-pills flex-column gap-0 sidebar-pills" role="menu">
@@ -43,10 +42,11 @@
         {
         <li class="nav-item">
           <a
-            [routerLink]="item.route"
             class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: $index === 0, }"
+            [routerLink]="item.route"
             [attr.aria-label]="item.title"
-            [class.active]="item === activeMenuItem"
           >
             <app-svg-icon [icon]="item.icon" [size]="25"></app-svg-icon>
             <span class="menu-title">{{ item.title }}</span>
