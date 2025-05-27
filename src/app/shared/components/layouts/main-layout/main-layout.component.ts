@@ -32,9 +32,9 @@ export class MainLayoutComponent implements OnInit {
         route: '/proprietor/school-manager',
       },
       { title: 'Payments', icon: 'credit-card', route: '/payments' },
-      { title: 'Staffs', icon: 'person', route: '/staffs' },
-      { title: 'Students', icon: 'school', route: '/students' },
-      { title: 'Settings', icon: 'cog', route: '/setting' },
+      { title: 'Staffs', icon: 'person', route: '/proprietor/staffs' },
+      { title: 'Students', icon: 'school', route: '/proprietor/students' },
+      { title: 'Settings', icon: 'cog', route: '/proprietor/setting' },
       { title: 'Help Center', icon: 'question-circle', route: '/help' },
     ],
   };

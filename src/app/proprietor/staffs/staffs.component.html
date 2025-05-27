@@ -1,0 +1,26 @@
+<app-main-layout>
+  <div class="container-lg">
+    <header class="d-flex justify-content-between mb-3">
+      <div>
+        <p class="title mb-0">Staffs</p>
+        <p class="mb-0">Name of school</p>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <button class="btn btn-primary" type="button" (click)="createStaff()">
+          Create Staff
+        </button>
+        <button class="btn btn-secondary ms-2" type="button">
+          <app-svg-icon [icon]="'arrow-down'" [size]="15"></app-svg-icon>
+          <span class="ms-1">Import Staffs</span>
+        </button>
+        <button class="btn btn-secondary ms-2" type="button">
+          <app-svg-icon [icon]="'upload-cloud'" [size]="15"></app-svg-icon>
+          <span class="ms-1">Export Staffs</span>
+        </button>
+      </div>
+    </header>
+
+    <router-outlet />
+  </div>
+</app-main-layout>

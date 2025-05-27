@@ -13,6 +13,7 @@ export const APP_ICONS = [
   'bell',
   'book',
   'books',
+  'calendar',
   'check',
   'check-circle-solid',
   'chevron-down',

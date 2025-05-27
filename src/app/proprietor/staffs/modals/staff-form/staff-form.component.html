@@ -1,0 +1,135 @@
+<div class="modal-header">
+  <p class="modal-title mb-0">Create Staff</p>
+
+  <button
+    class="btn-close"
+    type="button"
+    aria-label="Close"
+    (click)="close()"
+  ></button>
+</div>
+
+<div class="modal-body">
+  @switch (currentView) { @case (StaffFormViews.Main) {
+  <ng-container *ngTemplateOutlet="mainTemplate"></ng-container>
+  } @case (StaffFormViews.RoleAndPermissions) {
+  <ng-container *ngTemplateOutlet="roleAndPermissionsTemplate"></ng-container>
+  } @case (StaffFormViews.RoleAndPermissions){ } }
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" (click)="prev()">Back</button>
+  <button class="btn btn-primary" (click)="next()">Next</button>
+  <button class="btn btn-primary" (click)="save()">Save</button>
+  <button class="btn btn-secondary" (click)="close()">Cancel</button>
+</div>
+
+<!-- Templates -->
+<ng-template #mainTemplate>
+  <div class="row">
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="firstname" class="visible">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="First Name"
+          id="firstname"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="lastname" class="visible">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Last Name"
+          id="lastname"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="email" class="visible">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          id="email"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="phone" class="visible">Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Phone Number"
+          id="phone"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="gender" class="visible">Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Gender"
+          id="gender"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <app-form-field>
+        <label for="dateOfBirth" class="visible">Date Of Birth</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Date Of Birth"
+            id="dateOfBirth"
+          />
+
+          <button class="btn input-group-suffix">
+            <app-svg-icon [icon]="'calendar'" [size]="15"></app-svg-icon>
+          </button>
+        </div>
+      </app-form-field>
+    </div>
+
+    <div class="col-12 mb-3">
+      <app-form-field>
+        <label for="gender" class="visible">Address</label>
+        <textarea
+          class="form-control"
+          placeholder="Address"
+          id="address"
+          rows="2"
+        ></textarea>
+      </app-form-field>
+    </div>
+  </div>
+</ng-template>
+<ng-template #roleAndPermissionsTemplate>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <app-form-field>
+        <label for="role" class="visible">Role</label>
+        <select id="role" class="form-select">
+          @for (role of roles; track $index) {
+          <option [value]="role.value">{{ role.name }}</option>
+          }
+        </select>
+      </app-form-field>
+    </div>
+  </div>
+</ng-template>
+<!-- Templates -->
