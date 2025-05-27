@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
+import { IconDefinitions } from '@shared/components/svg-icon/models';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
 import {
   GetLowerCaseValidatorPattern,
@@ -101,6 +102,8 @@ export class CreatePasswordComponent {
   };
   public readonly TotalChecks = Object.keys(this.passwordTracker).length;
   public readonly Trackers = Object.values(this.passwordTracker);
+  public passwordType = 'password';
+  public passwordTypeIcon: IconDefinitions = 'eye';
 
   constructor(private readonly router: Router) {}
 
@@ -206,5 +209,11 @@ export class CreatePasswordComponent {
     }
 
     this.onStepChange.emit({ step: 3, data: this.passwordForm.value });
+  }
+
+  togglePasswordType() {
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+    this.passwordTypeIcon =
+      this.passwordType === 'password' ? 'eye' : 'eye-slash';
   }
 }

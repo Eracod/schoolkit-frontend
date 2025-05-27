@@ -82,6 +82,8 @@ main {
 
     .card {
       max-width: 30em;
+      width: 100%;
+      margin: 0 auto;
       border-radius: var(--app-border-radius-1);
 
       header {
@@ -91,6 +93,23 @@ main {
           color: var(--app-dark);
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    .main-content {
+      width: 100%;
+      padding: 0 2em;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    .main-content {
+      padding: 0 1em;
     }
   }
 }

@@ -1,27 +1,29 @@
 <p class="title">Subjects</p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      @for (column of columns; track $index) {
-      <th scope="col">{{ column.name }}</th>
+<app-table-container>
+  <table class="table table-striped" [style.minWidth.px]="800">
+    <thead>
+      <tr>
+        @for (column of columns; track $index) {
+        <th scope="col">{{ column.name }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of subjects; track $index) {
+      <tr>
+        <td [vAlign]="'middle'">{{ item.name }}</td>
+        <td [vAlign]="'middle'">{{ item.teacherCount }}</td>
+        <td [vAlign]="'middle'">{{ item.classCount }}</td>
+        <td [vAlign]="'middle'">{{ item.studentCount }}</td>
+        <td class="text-end" [vAlign]="'middle'">
+          <button class="btn btn-primary" type="button">View</button>
+        </td>
+      </tr>
       }
-    </tr>
-  </thead>
-  <tbody>
-    @for (item of subjects; track $index) {
-    <tr>
-      <td [vAlign]="'middle'">{{ item.name }}</td>
-      <td [vAlign]="'middle'">{{ item.teacherCount }}</td>
-      <td [vAlign]="'middle'">{{ item.classCount }}</td>
-      <td [vAlign]="'middle'">{{ item.studentCount }}</td>
-      <td class="text-end" [vAlign]="'middle'">
-        <button class="btn btn-primary" type="button">View</button>
-      </td>
-    </tr>
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</app-table-container>
 
 <div class="my-3 d-flex justify-content-center">
   <ngb-pagination

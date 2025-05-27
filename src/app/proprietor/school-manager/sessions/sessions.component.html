@@ -1,32 +1,34 @@
 <p class="title">Session History</p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      @for (column of columns; track $index) {
-      <th scope="col">{{ column.name }}</th>
-      }
-    </tr>
-  </thead>
-  <tbody>
-    @for (item of sessions; track $index) {
-    <tr>
-      <td [vAlign]="'middle'">{{ item.session }}</td>
-      <td [vAlign]="'middle'">{{ item.term }}</td>
-      <td [vAlign]="'middle'">{{ item.status }}</td>
-      <td [vAlign]="'middle'">{{ item.startAt }}</td>
-      <td [vAlign]="'middle'">{{ item.endAt }}</td>
-      <td class="text-end" [vAlign]="'middle'">
-        @if (item.status === 'Ongoing') {
-        <button class="btn btn-primary" type="button">Edit</button>
-        }@else {
-        <button class="btn btn-primary">Overview</button>
+<app-table-container>
+  <table class="table table-striped" [style.minWidth.px]="800">
+    <thead>
+      <tr>
+        @for (column of columns; track $index) {
+        <th scope="col">{{ column.name }}</th>
         }
-      </td>
-    </tr>
-    }
-  </tbody>
-</table>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of sessions; track $index) {
+      <tr>
+        <td [vAlign]="'middle'">{{ item.session }}</td>
+        <td [vAlign]="'middle'">{{ item.term }}</td>
+        <td [vAlign]="'middle'">{{ item.status }}</td>
+        <td [vAlign]="'middle'">{{ item.startAt }}</td>
+        <td [vAlign]="'middle'">{{ item.endAt }}</td>
+        <td class="text-end" [vAlign]="'middle'">
+          @if (item.status === 'Ongoing') {
+          <button class="btn btn-primary" type="button">Edit</button>
+          }@else {
+          <button class="btn btn-primary">Overview</button>
+          }
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</app-table-container>
 
 <div class="my-3 d-flex justify-content-center">
   <ngb-pagination

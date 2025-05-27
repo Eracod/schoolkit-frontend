@@ -45,6 +45,7 @@ main {
         rgba(6, 214, 160, 0.7) 111.32%
       ),
       linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    max-height: 100%;
 
     & .nav-pills {
       --bs-nav-pills-link-active-bg: #06d6a0;
@@ -70,6 +71,10 @@ main {
       }
     }
 
+    .sidebar-toggler {
+      display: none;
+    }
+
     .nav .nav-item .nav-link {
       --bs-nav-link-padding-y: 0.75rem;
       display: flex;
@@ -88,7 +93,7 @@ main {
       display: none;
       flex-direction: column;
       color: #fff;
-      padding: 1.5rem 0 2.5rem 0rem;
+      padding: 1.5rem 0 0rem 0rem;
 
       .btn {
         color: #fff;
@@ -183,6 +188,7 @@ main {
     z-index: 9999;
     align-items: flex-start;
     padding: 5px;
+    overflow: auto;
 
     & > * {
       width: 100%;
@@ -206,6 +212,14 @@ main {
 
     .sidebar-header {
       display: flex;
+    }
+
+    .sidebar-size-toggler {
+      display: none;
+    }
+
+    .sidebar-toggler {
+      display: inline-block;
     }
   }
 

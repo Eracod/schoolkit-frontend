@@ -20,9 +20,10 @@
   }
 
   .signup-wizard-content {
-    width: calc(100% - 15em);
+    // width: calc(100% - 15em);
     padding: 3rem;
     overflow: auto;
+    width: 100%;
 
     .welcome-message {
       img {

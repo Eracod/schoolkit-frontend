@@ -4,10 +4,11 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { SchoolSession } from '@shared/models/school.model';
 import { TableColumn } from '@shared/models/ui.model';
 import { Observable, of } from 'rxjs';
+import { TableContainerComponent } from '../../../shared/components/table-container/table-container.component';
 
 @Component({
   selector: 'app-sessions',
-  imports: [NgbPagination, AsyncPipe],
+  imports: [NgbPagination, AsyncPipe, TableContainerComponent],
   templateUrl: './sessions.component.html',
   styleUrl: './sessions.component.scss',
 })

@@ -4,10 +4,11 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { SchoolSubject } from '@shared/models/school.model';
 import { TableColumn } from '@shared/models/ui.model';
 import { Observable, of } from 'rxjs';
+import { TableContainerComponent } from '@shared/components/table-container/table-container.component';
 
 @Component({
   selector: 'app-subjects',
-  imports: [NgbPagination, AsyncPipe],
+  imports: [NgbPagination, AsyncPipe, TableContainerComponent],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.scss',
 })

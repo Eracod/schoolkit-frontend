@@ -1,24 +1,15 @@
 <main class="d-flex">
-  <div class="sidebar" [class.sidebar-collapse]="isSidebarCollapsed">
+  <div
+    class="sidebar"
+    [class.sidebar-collapse]="isSidebarCollapsed"
+    [class.open]="isSidebarOpen"
+  >
     <div class="d-flex flex-column">
       <div class="sidebar-header">
-        <div class="d-flex justify-content-between mb-3">
-          <button class="btn" type="button" (click)="toggleSidebar()">
-            <img src="icons/close-white.svg" alt="Close" class="icon" />
+        <div class="d-flex justify-content-center mb-3">
+          <button class="btn p-0" type="button" (click)="toggleSidebar()">
+            <app-svg-icon [icon]="'close'" [size]="25"></app-svg-icon>
           </button>
-
-          <button class="btn">
-            <img
-              src="icons/log-out-white.svg"
-              alt="Log out"
-              class="icon me-1"
-            />
-            <span>Log out</span>
-          </button>
-        </div>
-
-        <div class="logo d-flex justify-content-center">
-          <img src="favicons/android-chrome-512x512.png" alt="Eagule Logo" />
         </div>
       </div>
       <div class="mb-4 mt-2">
@@ -99,7 +90,7 @@
     <button
       class="btn sidebar-size-toggler"
       type="button"
-      (click)="toggleSidebarCollapse()"
+      (click)="toggleSidebar()"
     >
       <app-svg-icon [icon]="'chevron-right'" [size]="15"></app-svg-icon>
     </button>
@@ -112,6 +103,13 @@
         <div
           class="d-flex align-items-center justify-content-end justify-content-sm-between gap-3 w-100"
         >
+          <button
+            class="btn sidebar-toggler p-0"
+            type="button"
+            (click)="toggleSidebar()"
+          >
+            <app-svg-icon [icon]="'menu-left'" [size]="25"></app-svg-icon>
+          </button>
           <div class="w-100">
             <app-search></app-search>
           </div>

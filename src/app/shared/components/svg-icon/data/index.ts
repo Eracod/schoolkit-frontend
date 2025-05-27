@@ -39,6 +39,7 @@ export const APP_ICONS = [
   'logout',
   'mail-open-solid',
   'menu-right',
+  'menu-left',
   'money-receive',
   'money-send',
   'monitor-recorder',

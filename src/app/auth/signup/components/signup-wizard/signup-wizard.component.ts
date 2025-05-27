@@ -25,8 +25,6 @@ interface PersonalData {
     StepperItemComponent,
     PersonalInformationComponent,
     CreatePasswordComponent,
-    LogoComponent,
-    RouterLink,
   ],
   templateUrl: './signup-wizard.component.html',
   styleUrl: './signup-wizard.component.scss',
