@@ -3,6 +3,12 @@ import { Component, inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
+import { ChipModule } from '../../../../shared/components/chip/chip.module';
+import {
+  COMMA,
+  KEY_ENTER,
+  KeyCode,
+} from '@shared/components/chip/models/keycodes';
 
 enum StaffFormViews {
   Main,
@@ -11,7 +17,7 @@ enum StaffFormViews {
 
 @Component({
   selector: 'app-staff-form',
-  imports: [FormFieldComponent, SvgIconComponent, NgTemplateOutlet],
+  imports: [FormFieldComponent, SvgIconComponent, NgTemplateOutlet, ChipModule],
   templateUrl: './staff-form.component.html',
   styleUrl: './staff-form.component.scss',
 })
@@ -27,6 +33,8 @@ export class StaffFormComponent {
     { name: 'Librarian', value: 'librarian' },
     { name: 'Sports', value: 'sports' },
   ];
+  public keySeparators: KeyCode[] = [COMMA, KEY_ENTER];
+  public selectedRoles: string[] = ['administrator', 'teacher'];
 
   close() {
     this.activeModal.close();

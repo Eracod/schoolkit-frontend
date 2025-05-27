@@ -1,0 +1,24 @@
+.chip-grid {
+  border-radius: 10px;
+  border: 1px solid #e2e4e9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  & input {
+    appearance: none;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent;
+    padding: 0 !important;
+    width: auto !important;
+    flex: 1 1;
+    min-height: 0 !important;
+  }
+
+  &:has(input:focus) {
+    border-color: #0a0d14;
+    box-shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 3px #e4e5e7;
+  }
+}

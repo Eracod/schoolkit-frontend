@@ -122,6 +122,24 @@
   <div class="row">
     <div class="col-12 mb-3">
       <app-form-field>
+        <app-chip-grid #roleChips>
+          @for (item of selectedRoles; track $index) {
+          <app-chip-item>
+            {{ item }}
+          </app-chip-item>
+          }
+          <input
+            [appChipInputFor]="roleChips"
+            [appChipInputAddOnBlur]="false"
+            [appChipSeparatorKeys]="keySeparators"
+            type="text"
+            placeholder="Search roles"
+          />
+        </app-chip-grid>
+      </app-form-field>
+    </div>
+    <div class="col-12 mb-3">
+      <app-form-field>
         <label for="role" class="visible">Role</label>
         <select id="role" class="form-select">
           @for (role of roles; track $index) {
