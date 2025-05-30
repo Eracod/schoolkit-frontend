@@ -122,6 +122,7 @@
   <div class="row">
     <div class="col-12 mb-3">
       <app-form-field>
+        <label for="role" class="visible">Roles</label>
         <app-chip-grid #roleChips>
           @for (item of selectedRoles; track $index) {
           <app-chip-item>
@@ -129,25 +130,58 @@
           </app-chip-item>
           }
           <input
+            #roleInput
+            id="roles"
+            type="text"
+            placeholder="Search roles"
             [appChipInputFor]="roleChips"
             [appChipInputAddOnBlur]="false"
             [appChipSeparatorKeys]="keySeparators"
-            type="text"
-            placeholder="Search roles"
+            [ngbTypeahead]="searchRole"
+            [resultTemplate]="roleResultTemplate"
+            [inputFormatter]="roleFormatter"
+            [showHint]="false"
+            (selectItem)="addRole($event); roleInput.value = ''"
           />
         </app-chip-grid>
       </app-form-field>
     </div>
+
     <div class="col-12 mb-3">
       <app-form-field>
-        <label for="role" class="visible">Role</label>
-        <select id="role" class="form-select">
-          @for (role of roles; track $index) {
-          <option [value]="role.value">{{ role.name }}</option>
+        <label for="class-teacher" class="visible">Class assigned</label>
+        <app-chip-grid #roleChips>
+          @for (item of selectedRoles; track $index) {
+          <app-chip-item>
+            {{ item }}
+          </app-chip-item>
           }
-        </select>
+          <input
+            #roleInput
+            id="class-teacher"
+            type="text"
+            placeholder="Search roles"
+            [appChipInputFor]="roleChips"
+            [appChipInputAddOnBlur]="false"
+            [appChipSeparatorKeys]="keySeparators"
+            [ngbTypeahead]="searchRole"
+            [resultTemplate]="roleResultTemplate"
+            [inputFormatter]="roleFormatter"
+            [showHint]="false"
+            (selectItem)="addRole($event); roleInput.value = ''"
+            [container]="'body'"
+          />
+        </app-chip-grid>
       </app-form-field>
     </div>
   </div>
+
+  <ng-template #roleResultTemplate let-r="result" let-t="term">
+    <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+  </ng-template>
+
+  <ng-template #classResultTemplate let-r="result" let-t="term">
+    <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+  </ng-template>
 </ng-template>
 <!-- Templates -->
