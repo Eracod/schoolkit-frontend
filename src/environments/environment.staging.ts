@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'https://schoolpaymetsystem.onrender.com',
+  apiURL: 'https://schoolkit.runasp.net',
 };

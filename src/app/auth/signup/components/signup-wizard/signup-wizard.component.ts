@@ -8,6 +8,9 @@ import { LogoComponent } from '@shared/components/logo/logo.component';
 import { RegisterRequest } from '@shared/models/auth';
 import { AuthService } from '@shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AppService } from '@shared/services/app.service';
+import { Country } from '@shared/models/country.model';
 
 interface PersonalData {
   firstName: string;
@@ -16,6 +19,8 @@ interface PersonalData {
   gender: string;
   email: string;
   phone: string;
+  country: string;
+  state: string;
 }
 
 @Component({
@@ -52,8 +57,10 @@ export class SignupWizardComponent implements OnInit {
   personalData?: Partial<PersonalData>;
   passwordData?: { password: string; confirmPassword: string };
   processing = false;
+  countries: Country[] = [];
 
   constructor(
+    private readonly appService: AppService,
     private readonly authService: AuthService,
     private readonly router: Router,
     private readonly toastr: ToastrService
@@ -61,6 +68,7 @@ export class SignupWizardComponent implements OnInit {
 
   ngOnInit(): void {
     this.personalData = { email: this.email };
+    this.fetchCountries();
   }
 
   public onStepChange({ step, data }: { step: number; data: any }): void {
@@ -94,16 +102,23 @@ export class SignupWizardComponent implements OnInit {
       gender: this.personalData.gender!,
       middleName: this.personalData.middleName!,
       phoneNumber: this.personalData.phone!,
+      country: this.personalData.country!,
+      state: this.personalData.state!,
     };
 
     this.processing = true;
     this.authService.register(request).subscribe({
       next: (response) => {
-        console.log(response);
+        this.steps.forEach((s) => {
+          s.isCompleted = true;
+        });
         this.activeStep = 3;
       },
-      error: (error) => {
-        this.toastr.error(error.error.message, 'Operation Failed');
+      error: (error: HttpErrorResponse) => {
+        this.toastr.error(
+          error.error?.message || error.error?.title || error.message,
+          'Operation Failed'
+        );
         this.processing = false;
       },
     });
@@ -111,5 +126,11 @@ export class SignupWizardComponent implements OnInit {
 
   login() {
     this.router.navigate(['/']);
+  }
+
+  fetchCountries() {
+    this.appService.fetchCountries().subscribe((countries) => {
+      this.countries = countries;
+    });
   }
 }

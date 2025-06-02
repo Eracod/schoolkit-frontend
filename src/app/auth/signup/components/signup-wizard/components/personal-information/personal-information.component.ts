@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Country, CountryState } from '@shared/models/country.model';
 
 @Component({
   selector: 'app-personal-information',
@@ -16,6 +17,7 @@ import {
 })
 export class PersonalInformationComponent implements OnInit {
   @Input() public personalData?: any;
+  @Input() public countries: Country[] = [];
   @Output() public onStepChange = new EventEmitter<{
     step: number;
     data: any;
@@ -28,12 +30,22 @@ export class PersonalInformationComponent implements OnInit {
     gender: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
   });
+
+  public states: CountryState[] = [];
 
   ngOnInit(): void {
     if (this.personalData) {
       this.personalForm.patchValue(this.personalData);
     }
+
+    this.fc.country.valueChanges.subscribe((data) => {
+      this.states = [];
+      const country = this.countries.find((d) => d.name === data);
+      if (country) this.states = country.states;
+    });
   }
 
   public get fc() {

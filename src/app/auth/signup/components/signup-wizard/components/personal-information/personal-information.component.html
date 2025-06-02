@@ -67,6 +67,42 @@
     </app-form-field>
 
     <app-form-field class="mb-3">
+      <label for="gender" class="visible"
+        >Country <span class="text-danger">*</span></label
+      >
+      <select
+        class="form-select"
+        id="gender"
+        formControlName="country"
+        [class.error]="
+          fc.country.invalid && (fc.country.dirty || fc.country.touched)
+        "
+      >
+        <option value="" disabled selected hidden>Country</option>
+        @for (country of countries; track $index) {
+        <option [value]="country.name">{{ country.name }}</option>
+        }
+      </select>
+    </app-form-field>
+
+    <app-form-field class="mb-3">
+      <label for="gender" class="visible"
+        >States <span class="text-danger">*</span></label
+      >
+      <select
+        class="form-select"
+        id="gender"
+        formControlName="state"
+        [class.error]="fc.state.invalid && (fc.state.dirty || fc.state.touched)"
+      >
+        <option value="" disabled selected hidden>State</option>
+        @for (state of states; track $index) {
+        <option [value]="state.name">{{ state.name }}</option>
+        }
+      </select>
+    </app-form-field>
+
+    <app-form-field class="mb-3">
       <label for="email" class="visible"
         >Email <span class="text-danger">*</span></label
       >

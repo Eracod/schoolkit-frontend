@@ -33,6 +33,7 @@
     <div class="container-lg">
       @switch (activeStep) { @case (1) {
       <app-personal-information
+        [countries]="countries"
         [personalData]="personalData"
         (onStepChange)="onStepChange($event)"
       ></app-personal-information>
