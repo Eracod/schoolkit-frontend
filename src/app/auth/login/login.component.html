@@ -19,7 +19,7 @@
           <p class="body-text mb-0">Take control of your payments</p>
         </header>
 
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <app-form-field class="mb-3">
             <label for="email" class="visible">Email</label>
             <input
@@ -61,10 +61,12 @@
             <button
               class="btn btn-primary btn-lg"
               [disabled]="loginForm.invalid"
+              type="submit"
             >
-              Log in
+              <app-loader [loading]="processing"></app-loader>
+              <span>Log in</span>
             </button>
-            <button class="btn btn-outline-primary btn-lg">
+            <button class="btn btn-outline-primary btn-lg" type="button">
               <app-svg-icon
                 [icon]="'google'"
                 [size]="20"

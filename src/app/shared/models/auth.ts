@@ -15,3 +15,9 @@ export interface RegisterRequest {
   country: string;
   state: string;
 }
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+  // phoneNumber: 'string';
+}
