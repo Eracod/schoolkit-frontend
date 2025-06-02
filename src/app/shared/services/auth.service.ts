@@ -32,6 +32,9 @@ export class AuthService {
   }
 
   login(request: LoginRequest) {
-    return this.http.post<ApiResponse<any>>(`${this.API}/auth/login`, request);
+    return this.http.post<ApiResponse<any>>(`${this.API}/auth/login`, {
+      ...request,
+      phoneNumber: '',
+    });
   }
 }
