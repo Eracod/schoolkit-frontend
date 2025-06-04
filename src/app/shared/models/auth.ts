@@ -21,3 +21,9 @@ export interface LoginRequest {
   password: string;
   // phoneNumber: 'string';
 }
+
+export interface ConfirmEmailRequest {
+  userId: string;
+  token: string;
+  email: string;
+}

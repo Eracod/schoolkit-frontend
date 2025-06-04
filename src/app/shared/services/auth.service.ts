@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { ApiResponse } from '@shared/models/base.model';
 import {
+  ConfirmEmailRequest,
   LoginRequest,
   RegisterRequest,
   VerifyEmailResponse,
@@ -21,6 +22,13 @@ export class AuthService {
       {
         params: { email },
       }
+    );
+  }
+
+  confirmEmail(request: ConfirmEmailRequest) {
+    return this.http.post<ApiResponse<boolean>>(
+      `${this.API}/auth/confirm-email`,
+      request
     );
   }
 

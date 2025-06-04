@@ -1,0 +1,23 @@
+<div class="text-center content-pane">
+  <app-loader
+    [size]="40"
+    [color]="'#2ebceb26'"
+    [loading]="processing"
+  ></app-loader>
+  @if(!processing){ @if (confirmed) {
+  <p class="fw-bold title">Congratulations</p>
+  <p>
+    You have confirmed your email successfully and now ready to log into your
+    account
+  </p>
+
+  <button class="btn btn-primary" (click)="login()">Go to Log In</button>
+  }@else {
+  <p class="fw-bold title text-danger">Confirmation Failed</p>
+  <p>
+    Sorry we are unable to confirm you email at this moment, please try again
+    after sometime
+  </p>
+  <button class="btn btn-primary" (click)="login()">Go to Log In</button>
+  } }
+</div>

@@ -14,7 +14,9 @@ import {
   styleUrl: './loader.component.scss',
 })
 export class LoaderComponent implements OnInit {
-  @Input() loading = false;
+  @Input() loading = true;
+  @Input() size = 15;
+  @Input() color = 'currentColor';
   @ViewChild('loaderTemplate', { static: true })
   loaderTemplate!: TemplateRef<any>;
 

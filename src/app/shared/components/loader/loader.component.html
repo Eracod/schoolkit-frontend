@@ -1,6 +1,12 @@
 <ng-template #loaderTemplate>
   @if (loading) {
-  <div class="spinner-grow spinner-grow-sm text-light mx-1" role="status">
+  <div
+    class="spinner-grow spinner-grow-sm mx-1"
+    role="status"
+    [style.color]="color"
+    [style.width.px]="size"
+    [style.height.px]="size"
+  >
     <span class="visually-hidden">Loading...</span>
   </div>
   }

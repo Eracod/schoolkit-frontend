@@ -15,4 +15,13 @@ export const AuthRoutes: Routes = [
     loadComponent: () =>
       import('./signup/signup.component').then((m) => m.SignupComponent),
   },
+  {
+    path: 'confirm-email',
+    title: 'Confirm Email',
+    data: { description: 'Confirm account email' },
+    loadComponent: () =>
+      import('./confirm-email/confirm-email.component').then(
+        (m) => m.ConfirmEmailComponent
+      ),
+  },
 ];
