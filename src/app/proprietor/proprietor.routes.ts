@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { SchoolManagerRoutes } from './school-manager/school-manager.routes';
 import { StaffRoutes } from './staffs/staff.routes';
+import { StudentRoutes } from './students/student.routes';
 
 export const ProprietorRoutes: Routes = [
   {
@@ -39,10 +40,20 @@ export const ProprietorRoutes: Routes = [
     path: 'staffs',
     title: 'Staff Management',
     data: {
-      description: 'Manage staff members within your institution',
+      description: 'Manage staff members in your institution',
     },
     loadComponent: () =>
       import('./staffs/staffs.component').then((m) => m.StaffsComponent),
     children: StaffRoutes,
+  },
+  {
+    path: 'students',
+    title: 'Student Management',
+    data: {
+      description: 'Manage students in your school',
+    },
+    loadComponent: () =>
+      import('./students/students.component').then((m) => m.StudentsComponent),
+    children: StudentRoutes,
   },
 ];
