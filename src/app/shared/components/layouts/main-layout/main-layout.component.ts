@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
 import { Menu, MenuItem } from '@shared/models/menu.model';
@@ -7,6 +7,8 @@ import { AvatarComponent } from '../../avatar/avatar.component';
 import { LogoComponent } from '../../logo/logo.component';
 import { UiService } from '@shared/services/ui.service';
 import { SearchComponent } from '@shared/components/search/search.component';
+import { Store } from '@ngrx/store';
+import * as AuthStore from '@store/auth';
 
 @Component({
   selector: 'app-main-layout',
@@ -42,7 +44,11 @@ export class MainLayoutComponent implements OnInit {
   public isSidebarOpen = false;
   public isSidebarCollapsed = false;
 
-  constructor(private readonly uiService: UiService) {}
+  constructor(
+    private readonly router: Router,
+    private readonly store: Store,
+    private readonly uiService: UiService
+  ) {}
 
   ngOnInit(): void {
     this.uiService.settings$.subscribe((settings) => {
@@ -61,5 +67,10 @@ export class MainLayoutComponent implements OnInit {
     this.uiService.saveSettings({
       isSidebarCollapsed: this.isSidebarCollapsed,
     });
+  }
+
+  logout() {
+    this.store.dispatch(AuthStore.Logout());
+    this.router.navigateByUrl('/');
   }
 }

@@ -27,3 +27,14 @@ export interface ConfirmEmailRequest {
   token: string;
   email: string;
 }
+
+export interface AuthUser {
+  email: string;
+  firstName: string;
+  institutionId: number;
+  lastName: string;
+  phoneNumber: string;
+  refrehToken: string;
+  schoolId: number;
+  token: string;
+}

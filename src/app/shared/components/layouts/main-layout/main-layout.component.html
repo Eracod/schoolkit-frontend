@@ -75,10 +75,12 @@
         </li>
         <li class="nav-item">
           <a
+            role="button"
             class="nav-link"
             [attr.aria-label]="'logout'"
             [tooltipClass]="'menu-tooltip'"
             [ngbTooltip]="'Log Out'"
+            (click)="logout()"
           >
             <app-svg-icon [icon]="'logout'" [size]="25"></app-svg-icon>
             <span class="menu-title">Log Out</span>

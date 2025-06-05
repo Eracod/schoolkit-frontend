@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { ApiResponse } from '@shared/models/base.model';
 import {
+  AuthUser,
   ConfirmEmailRequest,
   LoginRequest,
   RegisterRequest,
@@ -40,9 +41,15 @@ export class AuthService {
   }
 
   login(request: LoginRequest) {
-    return this.http.post<ApiResponse<any>>(`${this.API}/auth/login`, {
+    return this.http.post<ApiResponse<AuthUser>>(`${this.API}/auth/login`, {
       ...request,
       phoneNumber: '',
+    });
+  }
+
+  refreshToken(token: string) {
+    return this.http.post<ApiResponse<any>>(`${this.API}/auth/refresh-token`, {
+      token,
     });
   }
 }

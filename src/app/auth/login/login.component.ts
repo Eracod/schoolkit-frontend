@@ -6,13 +6,15 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { FormFieldComponent } from '@shared/components/forms/form-field/form-field.component';
 import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { IconDefinitions } from '@shared/components/svg-icon/models';
 import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
 import { LoginRequest } from '@shared/models/auth';
 import { AuthService } from '@shared/services/auth.service';
+import { Login } from '@store/auth';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -37,6 +39,8 @@ export class LoginComponent {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly store: Store,
     private readonly toastr: ToastrService
   ) {}
 
@@ -71,8 +75,9 @@ export class LoginComponent {
     this.processing = true;
     this.authService.login(request).subscribe({
       next: (response) => {
-        console.log(response);
         this.processing = false;
+        this.store.dispatch(Login({ user: response.data }));
+        this.router.navigateByUrl('/proprietor');
       },
       error: (error: HttpErrorResponse) => {
         this.processing = false;
