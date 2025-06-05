@@ -71,10 +71,6 @@ main {
       }
     }
 
-    .sidebar-toggler {
-      display: none;
-    }
-
     .nav .nav-item .nav-link {
       --bs-nav-link-padding-y: 0.75rem;
       display: flex;
@@ -166,6 +162,10 @@ main {
     overflow: auto;
   }
 
+  .sidebar-toggler {
+    display: none;
+  }
+
   app-menubar {
     display: block;
     position: sticky;
@@ -217,10 +217,10 @@ main {
     .sidebar-size-toggler {
       display: none;
     }
+  }
 
-    .sidebar-toggler {
-      display: inline-block;
-    }
+  main .sidebar-toggler {
+    display: inline-block;
   }
 
   main .sidebar.open {
