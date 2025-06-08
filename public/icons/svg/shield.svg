@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800"
+   height="800"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1" />
+  <path
+     d="m 12,2.0189762 0.366827,0.2445502 c 2.540031,1.6933544 5.058252,2.532761 7.564574,2.532761 h 0.660951 v 8.2619106 c 0,5.33651 -3.826902,8.922826 -8.592352,8.922826 -4.7654506,0 -8.592352,-3.586316 -8.592352,-8.922826 V 4.7962874 h 0.6609502 c 2.5063229,0 5.0245429,-0.8394066 7.5645738,-2.5327609 z M 11.339049,4.00513 C 9.2240093,5.238463 7.0970717,5.9351045 4.9622028,6.0864621 l -0.2326545,0.013219 v 6.9585168 c 0,4.33451 2.8731503,7.264502 6.6095007,7.573827 z m 1.321901,0 v 16.627555 c 3.737012,-0.30939 6.609502,-3.239315 6.609502,-7.573827 V 6.0996812 L 19.037797,6.0864621 C 16.902928,5.9344437 14.77599,5.239124 12.661611,4.005791 Z"
+     fill="currentColor"
+     id="path1"
+     style="stroke-width:0.66095" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jude Iwuji</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

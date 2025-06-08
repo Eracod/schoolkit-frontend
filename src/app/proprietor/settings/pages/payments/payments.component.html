@@ -1,0 +1,28 @@
+<header class="d-flex align-items-center gap-3 mb-4">
+  <button class="btn" type="button" (click)="goBack()">
+    <app-svg-icon [icon]="'arrow-left'"></app-svg-icon>
+  </button>
+  <p class="title fw-bold mb-0">Payments</p>
+</header>
+
+<!-- Empty State -->
+<div class="row">
+  <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
+    <div class="empty-state text-center d-flex flex-column">
+      <img
+        src="images/credit-card-illustration.svg"
+        alt=""
+        width="800"
+        height="800"
+      />
+      <p class="title fw-bold mb-0 mt-3">No bank accounts linked currently</p>
+      <p class="small text-muted mb-3">
+        Updates will appear here, when you add a bank account
+      </p>
+      <div class="col-12 col-lg-8 col-xl-7 mx-auto d-grid">
+        <button class="btn btn-lg btn-primary">Add Bank Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Empty State -->

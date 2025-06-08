@@ -1,0 +1,29 @@
+<header class="d-flex align-items-center gap-3 mb-4">
+  <button class="btn" type="button" (click)="goBack()">
+    <app-svg-icon [icon]="'arrow-left'"></app-svg-icon>
+  </button>
+  <p class="title fw-bold mb-0">Security</p>
+</header>
+
+<div class="card border-0 mb-5">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column">
+        <p class="mb-0 fw-bold">Change password</p>
+        <p class="small text-muted mb-0">
+          Reset account password for maximum security
+        </p>
+      </div>
+
+      <div class="d-flex flex-column">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onChangePassword()"
+        >
+          Change Password
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

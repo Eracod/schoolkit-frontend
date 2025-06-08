@@ -1,0 +1,22 @@
+.avatar-pane {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  position: relative;
+
+  .floating-btn {
+    display: flex;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -5px;
+    bottom: 5px;
+  }
+}
+
+.title {
+  font-size: 1.15rem;
+}

@@ -1,0 +1,26 @@
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--app-dark);
+}
+
+.setting-card {
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0px 0px 5px 0px #0000001f;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 2px 5px 0px #0000001f;
+  }
+
+  .title {
+    font-size: 1rem;
+    color: var(--app-dark);
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+}

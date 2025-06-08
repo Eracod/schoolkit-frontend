@@ -1,0 +1,35 @@
+<header class="d-flex justify-content-between mb-3">
+  <p class="title mb-0">Settings</p>
+</header>
+
+<div class="profile-overview mb-3">
+  <div class="d-flex align-items-center gap-3">
+    <app-avatar [size]="100" [text]="currentUser()?.firstName"></app-avatar>
+    <div class="d-flex flex-column">
+      <p class="mb-1 fw-bold">
+        {{ currentUser()?.firstName }} {{ currentUser()?.lastName }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  @for (item of settings; track $index) {
+  <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-sm-auto mx-md-0 mb-3">
+    <div class="card setting-card" role="button" (click)="goto(item.route)">
+      <div class="card-body">
+        <app-svg-icon [icon]="item.icon" [size]="35"></app-svg-icon>
+
+        <div class="mt-3">
+          <p class="title fw-bold mb-0">
+            {{ item.title }}
+          </p>
+          <p class="subtitle text-muted mb-0">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

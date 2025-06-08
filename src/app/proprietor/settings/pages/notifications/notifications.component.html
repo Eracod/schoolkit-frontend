@@ -1,0 +1,23 @@
+<header class="d-flex align-items-center gap-3 mb-4">
+  <button class="btn" type="button" (click)="goBack()">
+    <app-svg-icon [icon]="'arrow-left'"></app-svg-icon>
+  </button>
+  <p class="title fw-bold mb-0">Notifications</p>
+</header>
+
+@for (item of notifications; track $index) {
+<div class="row mb-3 pb-1 border-bottom">
+  <div class="col-12 col-md-7">
+    <p class="fw-bold mb-0">{{ item.title }}</p>
+    <p class="small text-muted mb-0">{{ item.description }}</p>
+  </div>
+  <div class="col-12 col-md-5">
+    @for (method of item.methods; track $index) {
+    <app-form-switch class="mb-3">
+      <label class="small">{{ method.name }}</label>
+      <input type="checkbox" />
+    </app-form-switch>
+    }
+  </div>
+</div>
+}

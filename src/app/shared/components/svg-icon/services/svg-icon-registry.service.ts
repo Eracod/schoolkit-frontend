@@ -5,7 +5,7 @@ import {
   SafeHtml,
   SafeResourceUrl,
 } from '@angular/platform-browser';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable, of, shareReplay } from 'rxjs';
 
 interface IconRegistry {
   [x: string]: {
@@ -49,6 +49,7 @@ export class SvgIconRegistryService {
     }
 
     this.loader[url] = this.http.get(url, { responseType: 'text' }).pipe(
+      shareReplay(1),
       map((response) => {
         const safeHtml = this.sanitizer.bypassSecurityTrustHtml(response);
         this.icons[iconName] = { ...icon, html: safeHtml };

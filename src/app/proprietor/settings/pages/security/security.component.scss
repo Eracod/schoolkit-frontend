@@ -1,0 +1,13 @@
+.title {
+  font-size: 1.15rem;
+  color: var(--app-dark);
+}
+
+.card {
+  border-radius: 10px;
+  transition: all 200ms ease-in;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
