@@ -1,6 +1,6 @@
 <ngx-intl-tel-input
   class="form-tel"
-  [cssClass]="'form-tel-input'"
+  [cssClass]="'form-tel-input' + (inputControl.invalid && inputControl.touched)"
   [preferredCountries]="preferredCountries"
   [enableAutoCountrySelect]="true"
   [enablePlaceholder]="true"

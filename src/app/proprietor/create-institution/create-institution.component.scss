@@ -4,4 +4,25 @@
     font-weight: 700;
     color: #000000;
   }
+
+  .logo-pane {
+    --pane-size: 100px;
+    width: var(--pane-size);
+    height: var(--pane-size);
+    position: relative;
+
+    .floating-btn {
+      --btn-size: 3em;
+      width: var(--btn-size);
+      height: var(--btn-size);
+      position: absolute;
+      right: -5px;
+      bottom: 5px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }

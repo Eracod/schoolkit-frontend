@@ -2,67 +2,102 @@
   <div class="container-lg">
     <h1 class="title">Hello, {{ "Patricia" }}</h1>
 
-    <div class="row mb-3">
-      <div class="col-12 col-md-4 mb-3 mb-md-0">
-        <app-metric-card
-          [icon]="'user-group'"
-          [iconColor]="'#073B4C'"
-          [iconBgColor]="'#073B4C2A'"
-          [value]="440"
-          [title]="'Students'"
-          [percent]="0.5"
-          [percentText]="'Up from yesterday'"
-        ></app-metric-card>
-      </div>
-      <div class="col-12 col-md-4 mb-3 mb-md-0">
-        <app-metric-card
-          [icon]="'user-group'"
-          [iconColor]="'#FFD166'"
-          [iconBgColor]="'#FFD1662A'"
-          [value]="380"
-          [title]="'Staffs'"
-          [percent]="1.3"
-          [percentText]="'Up from past week'"
-        ></app-metric-card>
-      </div>
-      <div class="col-12 col-md-4 mb-3 mb-md-0">
-        <app-metric-card
-          [icon]="'line-chart'"
-          [iconColor]="'#06D6A0'"
-          [iconBgColor]="'#06D6A02A'"
-          [value]="44000"
-          [title]="'Payments'"
-          [percent]="-4.3"
-          [percentText]="'Down from yesterday'"
-        ></app-metric-card>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <p class="fw-bold">Administration</p>
-      <div>
-        <owl-carousel-o [options]="options">
-          @for (item of users; track $index) {
-          <ng-template carouselSlide [id]="item.id">
-            <div class="p-1">
-              <app-profile-card
-                [src]="item.src"
-                [name]="item.name"
-                [designation]="item.designation"
-              ></app-profile-card>
-            </div>
-          </ng-template>
-          }
-        </owl-carousel-o>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <p class="fw-bold mb-0">All Payments</p>
-      </div>
-
-      <app-payment-chart></app-payment-chart>
-    </div>
+    <ng-container
+      [ngTemplateOutlet]="dashboardTemplate"
+      *ngIf="false; else dashboardEmptyStateTemplate"
+    ></ng-container>
   </div>
 </app-main-layout>
+
+<!-- Templates -->
+<ng-template #dashboardTemplate>
+  <div class="row mb-3">
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+      <app-metric-card
+        [icon]="'user-group'"
+        [iconColor]="'#073B4C'"
+        [iconBgColor]="'#073B4C2A'"
+        [value]="440"
+        [title]="'Students'"
+        [percent]="0.5"
+        [percentText]="'Up from yesterday'"
+      ></app-metric-card>
+    </div>
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+      <app-metric-card
+        [icon]="'user-group'"
+        [iconColor]="'#FFD166'"
+        [iconBgColor]="'#FFD1662A'"
+        [value]="380"
+        [title]="'Staffs'"
+        [percent]="1.3"
+        [percentText]="'Up from past week'"
+      ></app-metric-card>
+    </div>
+    <div class="col-12 col-md-4 mb-3 mb-md-0">
+      <app-metric-card
+        [icon]="'line-chart'"
+        [iconColor]="'#06D6A0'"
+        [iconBgColor]="'#06D6A02A'"
+        [value]="44000"
+        [title]="'Payments'"
+        [percent]="-4.3"
+        [percentText]="'Down from yesterday'"
+      ></app-metric-card>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <p class="fw-bold">Administration</p>
+    <div>
+      <owl-carousel-o [options]="options">
+        @for (item of users; track $index) {
+        <ng-template carouselSlide [id]="item.id">
+          <div class="p-1">
+            <app-profile-card
+              [src]="item.src"
+              [name]="item.name"
+              [designation]="item.designation"
+            ></app-profile-card>
+          </div>
+        </ng-template>
+        }
+      </owl-carousel-o>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <p class="fw-bold mb-0">All Payments</p>
+    </div>
+
+    <app-payment-chart></app-payment-chart>
+  </div>
+</ng-template>
+
+<ng-template #dashboardEmptyStateTemplate>
+  <div class="d-flex flex-column justify-content-center empty-state">
+    <div class="d-flex flex-column align-items-center mb-5">
+      <img
+        src="images/connected-devices.svg"
+        width="1000"
+        height="1000"
+        class="banner mb-3"
+      />
+      <p class="fw-bold mb-0">Create your institution</p>
+      <p class="body-text text-muted mb-4">
+        Easily manage your institution payment all in one place
+      </p>
+
+      <button
+        type="button"
+        class="btn btn-lg btn-primary"
+        (click)="goto('create-institution')"
+      >
+        <span>Create Institution</span>
+        <app-svg-icon [icon]="'arrow-circle-right'"></app-svg-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
+<!-- Templates -->

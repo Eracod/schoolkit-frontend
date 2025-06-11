@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MainLayoutComponent } from '@shared/components/layouts/main-layout/main-layout.component';
 import { MetricCardComponent } from '@shared/components/metric-card/metric-card.component';
 import { ProfileCardComponent } from '@shared/components/profile-card/profile-card.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { PaymentChartComponent } from './components/payment-chart/payment-chart.component';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { SvgIconComponent } from '@shared/components/svg-icon/svg-icon.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +16,9 @@ import { PaymentChartComponent } from './components/payment-chart/payment-chart.
     ProfileCardComponent,
     CarouselModule,
     PaymentChartComponent,
+    NgIf,
+    NgTemplateOutlet,
+    SvgIconComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -97,4 +103,12 @@ export class DashboardComponent {
       src: 'assets/images/user8.png',
     },
   ];
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  constructor() {}
+
+  goto(url: string) {
+    this.router.navigate([url], { relativeTo: this.route });
+  }
 }

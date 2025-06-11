@@ -15,3 +15,13 @@ export const selectAuthRefreshToken = createSelector(
   selectCurrentUser,
   (user) => user?.refrehToken
 );
+
+export const selectInstitutionId = createSelector(
+  selectCurrentUser,
+  (user) => user?.institutionId
+);
+
+export const selectSchoolId = createSelector(
+  selectCurrentUser,
+  (user) => user?.schoolId
+);

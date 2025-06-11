@@ -20,3 +20,12 @@ export interface SchoolSubject {
   classCount: number;
   studentCount: number;
 }
+
+export interface CreateInstitutionRequest {
+  Name: string;
+  Address: string;
+  Email: string;
+  ContactPhoneNumber: string;
+  Website: string;
+  Motto: string;
+}

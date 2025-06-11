@@ -24,7 +24,7 @@ export class ConfirmEmailComponent implements OnInit {
     this.authService
       .confirmEmail({
         email,
-        token: `CfDJ8Bdu3iF9R1tAji1MAhbRMeON+X2k1S1grgpLAAxW0TAnIz9Fb/HZT5Xi+YXrkhcFUuWX57vMV7rqc8vhC89uFBFADxHT8cftW5MbrsV9Spk99k6jp5PzyPML1Z1ZO9XdIkEmPYaSCFKqRvwlPjBsGkoguCZLHTtIvOHmJzCT1NDB14itIfZhxpiguZ3M2QMOtg==`,
+        token: `${token}`.replaceAll(/[ ]/g, '+'),
         userId,
       })
       .subscribe({
