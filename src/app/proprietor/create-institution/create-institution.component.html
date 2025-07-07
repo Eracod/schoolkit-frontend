@@ -111,15 +111,19 @@
         <div class="col-12 col-lg-4 mb-4"></div>
       </div>
 
-      <div class="d-grid">
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg"
-          [disabled]="processing || institutionForm.invalid"
-        >
-          <span>Create</span>
-          <app-loader [loading]="processing"></app-loader>
-        </button>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mx-auto">
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="processing || institutionForm.invalid"
+            >
+              <span>Create</span>
+              <app-loader [loading]="processing"></app-loader>
+            </button>
+          </div>
+        </div>
       </div>
     </form>
   </div>
