@@ -1,5 +1,5 @@
 <app-main-layout>
-  <div class="container-lg mb-5">
+  <div class="container-md mb-5 mx-auto" [style.maxWidth.px]="1000">
     <header class="mb-5">
       <p class="title mb-0">Create Institution</p>
       <p class="body-text">Tell us more about your institution</p>
@@ -108,7 +108,29 @@
           </app-form-field>
         </div>
 
-        <div class="col-12 col-lg-4 mb-4"></div>
+        <div class="col-12 mb-4">
+          <app-form-field>
+            <label for="motto" class="visible">Description</label>
+            <textarea
+              class="form-control"
+              formControlName="Description"
+            ></textarea>
+          </app-form-field>
+        </div>
+
+        <div class="col-12 mb-4">
+          <app-form-field>
+            <label for="motto" class="visible">Mission</label>
+            <textarea class="form-control" formControlName="Mission"></textarea>
+          </app-form-field>
+        </div>
+
+        <div class="col-12 mb-4">
+          <app-form-field>
+            <label for="motto" class="visible">Vision</label>
+            <textarea class="form-control" formControlName="Vision"></textarea>
+          </app-form-field>
+        </div>
       </div>
 
       <div class="row">

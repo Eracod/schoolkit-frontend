@@ -22,10 +22,25 @@ export interface SchoolSubject {
 }
 
 export interface CreateInstitutionRequest {
-  Name: string;
-  Address: string;
-  Email: string;
-  ContactPhoneNumber: string;
-  Website: string;
-  Motto: string;
+  name: string;
+  address: string;
+  email: string;
+  contactPhoneNumber: string;
+  logoBase64?: string;
+  logoFileName?: string;
+  website: string;
+  description: string;
+  motto: string;
+  mission: string;
+  vision: string;
+  coreValues: string;
+  tagline: string;
+  about: string;
+}
+
+export interface CreateInstitutionResponse {
+  institutionId: number;
+  logoUrl: string;
+  name: string;
+  token: string;
 }

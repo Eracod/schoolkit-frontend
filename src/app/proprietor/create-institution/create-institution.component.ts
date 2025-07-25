@@ -14,6 +14,7 @@ import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { OnboardingService } from '@shared/services/onboarding.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CreateInstitutionRequest } from '@shared/models/school.model';
 
 const URL_PATTERN =
   /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -43,6 +44,9 @@ export class CreateInstitutionComponent {
       Validators.pattern(URL_PATTERN),
     ]),
     Motto: new FormControl(''),
+    Description: new FormControl(''),
+    Vision: new FormControl(''),
+    Mission: new FormControl(''),
   });
   public logoUrl = 'images/default-image.svg';
   public logo?: File;
@@ -62,13 +66,51 @@ export class CreateInstitutionComponent {
     event.currentTarget.value = '';
   }
 
-  create() {
+  fileToDataURI(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (result) => {
+        resolve(result.target?.result as string);
+      };
+      reader.onerror = (err) => {
+        reject(err);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async create() {
     if (this.institutionForm.invalid) {
       this.institutionForm.markAllAsTouched();
       return;
     }
 
-    const request = this.institutionForm.value as any;
+    if (!this.logo) {
+      this.toast.error('Please upload your institution logo');
+      return;
+    }
+
+    const formdata = this.institutionForm.value;
+    let logoBase64 = '';
+
+    if (this.logo) logoBase64 = await this.fileToDataURI(this.logo);
+
+    const request: CreateInstitutionRequest = {
+      about: '',
+      address: formdata.Address!,
+      contactPhoneNumber: formdata.ContactPhoneNumber!,
+      coreValues: '',
+      description: formdata.Description!,
+      email: formdata.Email!,
+      mission: formdata.Mission!,
+      motto: formdata.Motto!,
+      name: formdata.Name!,
+      tagline: '',
+      vision: formdata.Vision!,
+      website: formdata.Website!,
+      logoBase64,
+      logoFileName: this.logo?.name ?? '',
+    };
     this.processing = true;
     this.onboardingService.createInstitution(request, this.logo).subscribe({
       next: (response) => {
